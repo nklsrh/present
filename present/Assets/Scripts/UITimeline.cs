@@ -7,40 +7,31 @@ public class UITimeline : MonoBehaviour {
 
     [Header("Fill these up")]
     public UITapPoint tapPoint;
-    public Song song;
 
     [Header("Ignore these")]
     public List<UITapPoint> tapPoints;
 
-    public float currentTime;
-
-    void Start ()
+    public void Setup (Song song)
     {
         tapPoints.Clear();
 
         var songNotes = song.notes.ToArray();
         DMUtils.BuildList<UITapPoint, Note>(OnBuildTapPoint, songNotes, tapPoint.gameObject, tapPoint.transform.parent);
-
-        //for (int i = 0; i < songNotes.Length; i++)
-        {
-        }
 	}
 
     private void OnBuildTapPoint(UITapPoint ui, Note note)
     {
-        ui.SetupNote(currentTime, note);
+        ui.SetupNote(0, note);
 
         tapPoints.Add(ui);
     }
 
-    void Update ()
+    public void UpdateLogic (float currentTime)
     {
         for (int i = 0; i < tapPoints.Count; i++)
         {
             tapPoints[i].SetTime(currentTime);
         }
-
-        currentTime += Time.deltaTime;
 	}
 }
 
@@ -54,7 +45,7 @@ public class ComboCard : Card
 [System.Serializable]
 public class MoodCard : Card
 {
-    public List<MoodChange> moodChanges;
+    public List<MoodValue> moodChanges;
 }
 
 [System.Serializable]
@@ -66,10 +57,10 @@ public class DrawCard : Card
 [System.Serializable]
 public class Card
 {
-
+    public string name;
 }
 
-public struct MoodChange
+public struct MoodValue
 {
     public Note.Mood mood;
     public int value;
@@ -93,6 +84,7 @@ public class Note
     }
 
     public Mood mood;
+    public bool isComboNote = false;
 
     public float time;
 }
