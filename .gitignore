@@ -1,2 +1,5 @@
 present/Library/
 present/Temp/
+*.csproj
+*.sln
+*.suo
