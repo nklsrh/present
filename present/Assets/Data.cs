@@ -38,7 +38,7 @@ namespace DataTypes{
 		}
 	}
 	public class SheetCard: IEnumerable{
-		public System.DateTime updated = new System.DateTime(2018,12,15,8,43,59);
+		public System.DateTime updated = new System.DateTime(2018,12,15,9,40,0);
 		public readonly string[] labels = new string[]{"id","index","name","description","enum cardType","int cardsToDraw","string comboMood","float comboMultiplier","string[] moodChanges"};
 		private Card[] _rows = new Card[74];
 		public void Init() {
@@ -288,12 +288,12 @@ namespace DataTypes{
 		}
 	}
 	public class SheetLevel: IEnumerable{
-		public System.DateTime updated = new System.DateTime(2018,12,15,8,43,59);
+		public System.DateTime updated = new System.DateTime(2018,12,15,9,40,0);
 		public readonly string[] labels = new string[]{"id","int startA","int startB","int startC","int scoreA","int scoreB","int scoreC","string[] moodChanges"};
 		private Level[] _rows = new Level[1];
 		public void Init() {
 			_rows = new Level[]{
-					new Level("test_level",20,10,60,70,60,50,new string[]{"1","1;1","1;2","1;1","3;2","2;1","1;1","0;1","0;1","0;0","1;0","2;0","3;0","1;1","1;3","3;1","1;2","1;0","1;1","0;2","2;1","0;0","2;0","1;3","3"})
+					new Level("test_level",20,10,60,70,60,50,new string[]{"0;1;1;0","0;1;1;0","0;2;1;0","0;1;3;0","0;2;2;0","0;1;1;0","0;1;0;0","0;1;0;0","0;1;0;0","0;0;1;0","0;0;2;0","0;0;3;0","0;0;1;0","0;1;1;0","0;3;3;0","0;1;1;0","0;2;1;0","0;0;1;0","0;1;0;0","0;2;2;0","0;1;0;0","0;0;2;0","0;0;1;0","0;3;3;0"})
 				};
 		}
 			
@@ -388,12 +388,12 @@ namespace DataTypes{
 		}
 	}
 	public class SheetTimings: IEnumerable{
-		public System.DateTime updated = new System.DateTime(2018,12,15,8,43,59);
+		public System.DateTime updated = new System.DateTime(2018,12,15,9,40,0);
 		public readonly string[] labels = new string[]{"id","string[] moodChanges"};
 		private Timings[] _rows = new Timings[1];
 		public void Init() {
 			_rows = new Timings[]{
-					new Timings("test_level",new string[]{"1;2;1;1;2;0.5;0.5;1;3;1;2;1;1;1;0.5;0.5;1;1;2;0.5;0.5;1;0.5;1"})
+					new Timings("test_level",new string[]{"1","2","1","1","2","0.5_COMBO","0.5","1","3","1","2","1","1","1","0.5","0.5","1","1","2","0.5","0.5","1","0.5","1"})
 				};
 		}
 			

@@ -125,9 +125,8 @@ public class Note
         C = 3,
     }
 
-    public List<Mood> moods = new List<Mood>();
+    public Dictionary<Mood, int> moodScores = new Dictionary<Mood, int>();
     public bool isComboNote = false;
-    public int score;
 
     public float time;
 }

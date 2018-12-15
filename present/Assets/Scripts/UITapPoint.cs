@@ -25,11 +25,11 @@ public class UITapPoint : MonoBehaviour
         myNote = note;
         rect = GetComponent<RectTransform>();
         List<string> lis = new List<string>();
-        foreach (var item in note.moods)
+        foreach (var item in note.moodScores)
         {
-            lis.Add(item.ToString());
+            lis.Add(item.Key.ToString() + ": " + item.Value.ToString());
         }
-        txt.text = DMUtils.StringArray(lis.ToArray()) + " " + note.score;
+        txt.text = DMUtils.StringArray(lis.ToArray());
 
         SetTime(currentTime);
     }

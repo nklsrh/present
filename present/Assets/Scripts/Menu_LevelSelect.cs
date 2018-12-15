@@ -27,9 +27,35 @@ public class Menu_LevelSelect : MonoBehaviour {
 
         selectedCards = new List<DCard>()
         {
-            Data.card.card_combo_1,
-            Data.card.card_mood_1,
-            Data.card.card_draw_1,
+            Data.card.card_mood_21
+            ,    Data.card.card_mood_42
+            ,    Data.card.card_mood_63
+            ,    Data.card.card_combo_3
+            ,    Data.card.card_combo_6
+            ,    Data.card.card_combo_9
+            ,    Data.card.card_draw_2
+            ,    Data.card.card_mood_16
+            ,    Data.card.card_mood_4
+            ,    Data.card.card_mood_32
+            ,    Data.card.card_mood_54
+            ,    Data.card.card_mood_40
+            ,    Data.card.card_mood_36
+            ,    Data.card.card_mood_37
+            ,    Data.card.card_mood_62,   Data.card.card_mood_21
+            ,    Data.card.card_mood_42
+            ,    Data.card.card_mood_63
+            ,    Data.card.card_combo_3
+            ,    Data.card.card_combo_6
+            ,    Data.card.card_combo_9
+            ,    Data.card.card_draw_2
+            ,    Data.card.card_mood_16
+            ,    Data.card.card_mood_4
+            ,    Data.card.card_mood_32
+            ,    Data.card.card_mood_54
+            ,    Data.card.card_mood_40
+            ,    Data.card.card_mood_36
+            ,    Data.card.card_mood_37
+            ,    Data.card.card_mood_62,
         };
 
         Refresh();

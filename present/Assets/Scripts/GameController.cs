@@ -36,6 +36,7 @@ public class GameController : MonoBehaviour
     {
         this.level = level;
 
+        SetupSong(level.id);
         SetupDeck(deckCards);
 
         SetupHand();
@@ -48,6 +49,38 @@ public class GameController : MonoBehaviour
         uiTimeline.onMissedNote += OnMissedNote;
 
         gameStarted = true;
+    }
+
+    private void SetupSong(string id)
+    {
+        song = new Song();
+        song.notes = new List<Note>();
+
+        var timings = Data.timings[id];
+        float lastTime = 0.0f;
+
+        for (int i = 0; i < timings.moodChanges.Length; i++)
+        {
+            var note = new Note();
+
+            var splitted = level.moodChanges[i].Split(';');
+            note.moodScores = new Dictionary<Note.Mood, int>();
+            for (int j = 0; j < splitted.Length; j++)
+            {
+                int val = int.Parse(splitted[j]);
+                if (val > 0)
+                {
+                    note.moodScores.Add((Note.Mood)j, val);
+                }
+            }
+
+            note.time = lastTime + float.Parse(timings.moodChanges[i].Split('_')[0]);
+            lastTime = note.time;
+
+            note.isComboNote = timings.moodChanges[i].Contains("COMBO");
+
+            song.notes.Add(note);
+        }
     }
 
     private void SetupScore(int startA, int startB, int startC, int a, int b, int c)
@@ -66,30 +99,6 @@ public class GameController : MonoBehaviour
     private void SetupDeck(List<Card> deckCards)
     {
         deck = deckCards;
-
-        //deck = new List<Card>();
-
-        //deck.Add(new ComboCard() { mood = Note.Mood.A, multiplier = 2.0f });
-        //deck.Add(new MoodCard() { moodChanges = new List<MoodValue>() { new MoodValue() { mood = Note.Mood.A, value = 3 }, new MoodValue() { mood = Note.Mood.B, value = 3 } } });
-        //deck.Add(new ComboCard() { mood = Note.Mood.A, multiplier = 2.0f });
-        //deck.Add(new MoodCard() { moodChanges = new List<MoodValue>() { new MoodValue() { mood = Note.Mood.A, value = 3 } } });
-        //deck.Add(new DrawCard() { cardsToDraw = 3 });
-        //deck.Add(new MoodCard() { moodChanges = new List<MoodValue>() { new MoodValue() { mood = Note.Mood.A, value = 7 } } });
-        //deck.Add(new MoodCard() { moodChanges = new List<MoodValue>() { new MoodValue() { mood = Note.Mood.A, value = 2 } } });
-        //deck.Add(new DrawCard() { cardsToDraw = 2 });
-        //deck.Add(new MoodCard() { moodChanges = new List<MoodValue>() { new MoodValue() { mood = Note.Mood.A, value = 5 }, new MoodValue() { mood = Note.Mood.C, value = 4 } } });
-        //deck.Add(new ComboCard() { mood = Note.Mood.A, multiplier = 2.0f });
-        //deck.Add(new MoodCard() { moodChanges = new List<MoodValue>() { new MoodValue() { mood = Note.Mood.A, value = 5 } } });
-        //deck.Add(new DrawCard() { cardsToDraw = 3 });
-        //deck.Add(new ComboCard() { mood = Note.Mood.A, multiplier = 2.0f });
-        //deck.Add(new MoodCard() { moodChanges = new List<MoodValue>() { new MoodValue() { mood = Note.Mood.A, value = 2 }, new MoodValue() { mood = Note.Mood.B, value = 4 } } });
-        //deck.Add(new MoodCard() { moodChanges = new List<MoodValue>() { new MoodValue() { mood = Note.Mood.A, value = 4 } } });
-        //deck.Add(new MoodCard() { moodChanges = new List<MoodValue>() { new MoodValue() { mood = Note.Mood.A, value = 3 }, new MoodValue() { mood = Note.Mood.C, value = 2 } } });
-        //deck.Add(new MoodCard() { moodChanges = new List<MoodValue>() { new MoodValue() { mood = Note.Mood.A, value = 4 } } });
-        //deck.Add(new MoodCard() { moodChanges = new List<MoodValue>() { new MoodValue() { mood = Note.Mood.A, value = 3 } } });
-        //deck.Add(new ComboCard() { mood = Note.Mood.A, multiplier = 2.0f });
-        //deck.Add(new MoodCard() { moodChanges = new List<MoodValue>() { new MoodValue() { mood = Note.Mood.A, value = 2 }, new MoodValue() { mood = Note.Mood.B, value = 5 } } });
-        //deck.Add(new DrawCard() { cardsToDraw = 2 });
     }
 
     public void SetupHand()
@@ -168,6 +177,7 @@ public class GameController : MonoBehaviour
                 if (note.isComboNote)
                 {
                     //var value = c.multiplier;
+                    //var note.
                 }
             }
             DrawCards(1);
@@ -214,16 +224,18 @@ public class GameController : MonoBehaviour
 
             for (int j = 0; j < values.Count; j++)
             {
-                //Debug.Log("Matches: " + values[j].mood + " : " + values[j].value);
-                values[j].value += score - note.score;
-                uiScoring.SetScore(values[j].mood, values[j].value);
+                if (note.moodScores.ContainsKey(mood))
+                {
+                    values[j].value += score - note.moodScores[mood];
+                    uiScoring.SetScore(values[j].mood, values[j].value);
+                }
             }
         }
     }
 
     List<MoodValue> GetMoodValues(Note note, Note.Mood mood)
     {
-        return moodValues.FindAll(r => r.mood == Note.Mood.Blank || note.moods.Contains(r.mood));
+        return moodValues.FindAll(r => r.mood == Note.Mood.Blank || note.moodScores.ContainsKey(r.mood));
     }
 
     public void OnLevelFinished()
