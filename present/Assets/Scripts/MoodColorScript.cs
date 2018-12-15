@@ -24,7 +24,7 @@ public class MoodColorScript : MonoBehaviour {
     {
         if (m == "A")
         {
-            GetComponent<RawImage>().color = Color.red;  
+            GetComponent<RawImage>().color = Color.green;  
         }
 
         if (m == "B")

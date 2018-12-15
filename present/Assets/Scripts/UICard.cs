@@ -16,6 +16,14 @@ public class UICard : MonoBehaviour
     public GameObject colorHolder;
     public GameObject moodColor;
 
+    public GameObject drawCardHolder;
+    public TextMeshProUGUI drawText;
+
+    public GameObject comboCardHolder;
+    public RawImage comboColor;
+    public TextMeshProUGUI comboText;
+
+
 
     internal void SetCard(DCard card)
     {
@@ -48,12 +56,29 @@ public class UICard : MonoBehaviour
             title = "Draw";
             var c = card as DrawCard;
             subtitle = c.cardsToDraw + "x";
+
+            drawCardHolder.SetActive(true);
+            drawText.text = "<size=42>x" + "</size>" + c.cardsToDraw;
         }
         if (card is ComboCard)
         {
             title = "Combo";
             var c = card as ComboCard;
             subtitle = "<size=93>" + c.mood.ToString() + "<sup>" + (c.multiplier * 100).ToString("###0") + "%</sup></size>\n";
+
+            comboCardHolder.SetActive(true);
+            if (c.mood.ToString() == "A")
+            {
+                comboColor.color = Color.green;
+            } else if (c.mood.ToString() == "B")
+            {
+                comboColor.color = Color.blue;
+            }
+            else if (c.mood.ToString() == "C")
+            {
+                comboColor.color = Color.magenta;
+            }
+            comboText.text = "<size=42>x" + "</size>" + c.multiplier;
         }
         //txt.text = title + "\n" + subtitle;
     }
