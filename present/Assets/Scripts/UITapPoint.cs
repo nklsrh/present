@@ -12,6 +12,14 @@ public class UITapPoint : MonoBehaviour
     private Note myNote;
     private RectTransform rect;
 
+    public Note Note
+    {
+        get
+        {
+            return myNote;
+        }
+    }
+
     internal void SetupNote(float currentTime, Note note)
     {
         myNote = note;
@@ -26,13 +34,30 @@ public class UITapPoint : MonoBehaviour
         SetTime(currentTime);
     }
 
-    public void SetTime(float currentTime)
+    /// <summary>
+    /// 
+    /// </summary>
+    /// <param name="currentTime"></param>
+    /// <returns>if note expires and runs out of time, return true</returns>
+    public bool SetTime(float currentTime)
     {
         if (myNote != null && rect != null)
         {
             float secondsFromNow = myNote.time - currentTime;
 
             rect.anchoredPosition = new Vector2(secondsFromNow * DISTANCE_PER_SECOND, rect.anchoredPosition.y);
+
+            if (currentTime > myNote.time + GameController.TAP_NODE_TIME_WINDOW)
+            {
+                Hide();
+                return true;
+            }
         }
+        return false;
+    }
+
+    public void Hide()
+    {
+        gameObject.SetActive(false);
     }
 }

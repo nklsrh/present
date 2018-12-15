@@ -24,6 +24,7 @@ public class GameController : MonoBehaviour
     public const int STARTING_HAND_SIZE = 4;
 
     public const float TAP_NODE_TIME_WINDOW = 0.5f;       // how much time before and after the exact note point do we allow the user to tap
+    public const int PENALTY = 2;
 
     void Start ()
     {
@@ -35,6 +36,7 @@ public class GameController : MonoBehaviour
 
         SetupScore();
 
+        uiTimeline.onMissedNote += OnMissedNote;
         uiTimeline.Setup(song);
     }
 
@@ -54,15 +56,15 @@ public class GameController : MonoBehaviour
         deck.Add(new ComboCard() { mood = Note.Mood.A, multiplier = 2.0f });
         deck.Add(new MoodCard() { moodChanges = new List<MoodValue>() { new MoodValue() { mood = Note.Mood.A, value = 3 } } });
         deck.Add(new DrawCard() { cardsToDraw = 3 });
-        deck.Add(new MoodCard() { moodChanges = new List<MoodValue>() { new MoodValue() { mood = Note.Mood.A, value = 1 } } });
+        deck.Add(new MoodCard() { moodChanges = new List<MoodValue>() { new MoodValue() { mood = Note.Mood.A, value = 7 } } });
         deck.Add(new MoodCard() { moodChanges = new List<MoodValue>() { new MoodValue() { mood = Note.Mood.A, value = 2 } } });
         deck.Add(new DrawCard() { cardsToDraw = 2 });
         deck.Add(new MoodCard() { moodChanges = new List<MoodValue>() { new MoodValue() { mood = Note.Mood.A, value = 5 }, new MoodValue() { mood = Note.Mood.C, value = 4 } } });
         deck.Add(new ComboCard() { mood = Note.Mood.A, multiplier = 2.0f });
-        deck.Add(new MoodCard() { moodChanges = new List<MoodValue>() { new MoodValue() { mood = Note.Mood.A, value = 1 } } });
+        deck.Add(new MoodCard() { moodChanges = new List<MoodValue>() { new MoodValue() { mood = Note.Mood.A, value = 5 } } });
         deck.Add(new DrawCard() { cardsToDraw = 3 });
         deck.Add(new ComboCard() { mood = Note.Mood.A, multiplier = 2.0f });
-        deck.Add(new MoodCard() { moodChanges = new List<MoodValue>() { new MoodValue() { mood = Note.Mood.A, value = 2 }, new MoodValue() { mood = Note.Mood.B, value = 1 } } });
+        deck.Add(new MoodCard() { moodChanges = new List<MoodValue>() { new MoodValue() { mood = Note.Mood.A, value = 2 }, new MoodValue() { mood = Note.Mood.B, value = 4 } } });
         deck.Add(new MoodCard() { moodChanges = new List<MoodValue>() { new MoodValue() { mood = Note.Mood.A, value = 4 } } });
         deck.Add(new MoodCard() { moodChanges = new List<MoodValue>() { new MoodValue() { mood = Note.Mood.A, value = 3 }, new MoodValue() { mood = Note.Mood.C, value = 2 } } });
         deck.Add(new MoodCard() { moodChanges = new List<MoodValue>() { new MoodValue() { mood = Note.Mood.A, value = 4 } } });
@@ -131,14 +133,12 @@ public class GameController : MonoBehaviour
             var note = GetNote(currentTime);
             if (note != null)
             {
-                var moodMatches = c.moodChanges.FindAll(r => note.moods.Contains(r.mood));
                 if (note != null)
                 {
-                    //if (moodMatches.Count > 0)
-                    {
-                        ScoreMood(note, c, moodMatches);
-                    }
+                    ScoreMood(note, c);
                 }
+
+                uiTimeline.HideLatestNode();
             }
         }
 
@@ -167,8 +167,21 @@ public class GameController : MonoBehaviour
         uiHand.Setup(hand);
     }
 
-    private void ScoreMood(Note note, MoodCard card, List<MoodValue> matches)
+    private void OnMissedNote(UITapPoint tap)
     {
+        for (int j = 0; j < moodValues.Count; j++)
+        {
+            //Debug.Log("PENALTY: " + moodValues[j].mood + " : " + moodValues[j].value);
+            moodValues[j].value -= PENALTY;
+
+            uiScoring.SetScore(moodValues[j].mood, moodValues[j].value);
+        }
+    }
+
+    private void ScoreMood(Note note, MoodCard card)
+    {
+        //var moodMatches = c.moodChanges.FindAll(r => note.moods.Contains(r.mood));
+
         for (int i = 0; i < card.moodChanges.Count; i++)
         {
             var moodChange = card.moodChanges[i];
@@ -176,19 +189,20 @@ public class GameController : MonoBehaviour
             var mood = moodChange.mood;
             int score = moodChange.value;
 
-            var values = moodValues.FindAll(r => (note.moods.Count == 0 || r.mood == Note.Mood.Blank) && mood == r.mood);
+            var values = moodValues.FindAll(r => r.mood == mood);
+
+            //Debug.Log("Matches: " + values.Count);
             for (int j = 0; j < values.Count; j++)
             {
+                //Debug.Log("Matches: " + values[j].mood + " : " + values[j].value);
                 values[j].value += score - note.score;
-                uiScoring.SetScore(values[j].mood, values[j].value, 100);
-
-                Debug.Log(values[j].mood + " CCCSCORE! " + values[j].value);
+                uiScoring.SetScore(values[j].mood, values[j].value);
             }
-
-
-
-
-            Debug.Log(card.moodChanges[i].mood + " SCORE! " + card.moodChanges[i].value);
         }
+    }
+
+    List<MoodValue> GetMoodValues(Note note, Note.Mood mood)
+    {
+        return moodValues.FindAll(r => r.mood == Note.Mood.Blank || note.moods.Contains(r.mood));
     }
 }

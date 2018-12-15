@@ -11,6 +11,8 @@ public class UITimeline : MonoBehaviour {
     [Header("Ignore these")]
     public List<UITapPoint> tapPoints;
 
+    public Action<UITapPoint> onMissedNote;
+
     public void Setup (Song song)
     {
         tapPoints.Clear();
@@ -30,9 +32,27 @@ public class UITimeline : MonoBehaviour {
     {
         for (int i = 0; i < tapPoints.Count; i++)
         {
-            tapPoints[i].SetTime(currentTime);
+            if (tapPoints[i].gameObject.activeSelf)
+            {
+                if (tapPoints[i].SetTime(currentTime))
+                {
+                    if (onMissedNote != null)
+                    {
+                        onMissedNote.Invoke(tapPoints[i]);
+                    }
+                }
+            }
+            else
+            {
+                tapPoints.Remove(tapPoints[i]);
+            }
         }
 	}
+
+    internal void HideLatestNode()
+    {
+        tapPoints[0].gameObject.SetActive(false);
+    }
 }
 
 [System.Serializable]

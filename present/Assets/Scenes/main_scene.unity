@@ -1017,65 +1017,65 @@ MonoBehaviour:
   uiScoring: {fileID: 1084006617}
   song:
     notes:
-    - moods: 
+    - moods: 00000000
       isComboNote: 0
-      score: 2
+      score: 1
       time: 1.5
-    - moods: 
+    - moods: 00000000
       isComboNote: 0
       score: 1
       time: 3.5
     - moods: 0100000003000000
       isComboNote: 0
-      score: 3
+      score: 1
       time: 5
     - moods: 01000000
       isComboNote: 0
-      score: 3
+      score: 2
       time: 7
     - moods: 02000000
       isComboNote: 0
-      score: 3
+      score: 1
       time: 9
-    - moods: 
+    - moods: 00000000
       isComboNote: 0
-      score: 3
+      score: 2
       time: 11
-    - moods: 
+    - moods: 00000000
       isComboNote: 0
-      score: 3
+      score: 2
       time: 13
-    - moods: 
+    - moods: 00000000
       isComboNote: 0
-      score: 3
+      score: 1
       time: 16
-    - moods: 
+    - moods: 00000000
       isComboNote: 0
-      score: 3
+      score: 1
       time: 19
-    - moods: 
+    - moods: 00000000
       isComboNote: 0
       score: 3
       time: 22
-    - moods: 
+    - moods: 00000000
       isComboNote: 0
-      score: 3
+      score: 1
       time: 26
-    - moods: 
+    - moods: 00000000
       isComboNote: 0
-      score: 3
+      score: 1
       time: 28
-    - moods: 
+    - moods: 00000000
       isComboNote: 0
-      score: 3
+      score: 2
       time: 31
-    - moods: 
+    - moods: 00000000
       isComboNote: 0
-      score: 3
+      score: 1
       time: 35
-    - moods: 
+    - moods: 00000000
       isComboNote: 0
-      score: 3
+      score: 2
       time: 39
   hand: []
   deck: []
@@ -1114,7 +1114,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 1}
   m_AnchorMax: {x: 0.5, y: 1}
-  m_AnchoredPosition: {x: -660, y: -86}
+  m_AnchoredPosition: {x: -392, y: -86}
   m_SizeDelta: {x: 321, y: 83.3}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &962335174
@@ -1681,7 +1681,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 1}
   m_AnchorMax: {x: 0.5, y: 1}
-  m_AnchoredPosition: {x: 122, y: -86.00001}
+  m_AnchoredPosition: {x: 390.00003, y: -86.00001}
   m_SizeDelta: {x: 321, y: 83.3}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &1097397137
@@ -2274,7 +2274,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 1}
   m_AnchorMax: {x: 0.5, y: 1}
-  m_AnchoredPosition: {x: -257, y: -85.73}
+  m_AnchoredPosition: {x: 11.0000305, y: -85.73}
   m_SizeDelta: {x: 321, y: 83.3}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &1700354633
