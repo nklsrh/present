@@ -11,16 +11,30 @@ public class UIHand : MonoBehaviour {
     [Header("Ignore these")]
     public List<UICard> cards;
 
-    internal void Setup(List<Card> deck)
+    private Action<Card> onPlayCard;
+
+    internal void Setup(List<Card> cardList, Action<Card> playCard)
+    {
+        this.onPlayCard = playCard;
+
+        Setup(cardList);
+    }
+
+    internal void Setup(List<Card> cardList)
     {
         cards.Clear();
 
-        var cardArray = deck.ToArray();
+        var cardArray = cardList.ToArray();
         DMUtils.BuildList<UICard, Card>(OnBuildCard, cardArray, card.gameObject, card.transform.parent);
     }
 
     private void OnBuildCard(UICard ui, Card card)
     {
         ui.SetCard(card);
+
+        if (onPlayCard != null)
+        {
+            ui.SetAction(onPlayCard);
+        }
     }
 }

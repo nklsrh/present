@@ -90,9 +90,9 @@
      borderopacity="1.0"
      inkscape:pageopacity="0.0"
      inkscape:pageshadow="2"
-     inkscape:zoom="0.24748737"
-     inkscape:cx="-172.46498"
-     inkscape:cy="587.84587"
+     inkscape:zoom="0.49497475"
+     inkscape:cx="98.218027"
+     inkscape:cy="330.78235"
      inkscape:document-units="px"
      inkscape:current-layer="layer1"
      showgrid="false"
@@ -1014,5 +1014,15 @@
          x="247.48788"
          id="tspan4323"
          sodipodi:role="line">Inventory</tspan></text>
+    <rect
+       style="fill:#ffffff;fill-opacity:1;stroke:none"
+       id="rect4237-6"
+       width="512"
+       height="512"
+       x="-472.81808"
+       y="957.87921"
+       inkscape:export-filename="C:\Users\Nikhil\Documents\Game Projects\present\present\Assets\Sprites\square.png"
+       inkscape:export-xdpi="2.8099999"
+       inkscape:export-ydpi="2.8099999" />
   </g>
 </svg>

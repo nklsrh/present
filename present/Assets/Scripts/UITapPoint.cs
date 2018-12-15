@@ -2,10 +2,11 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using TMPro;
 
 public class UITapPoint : MonoBehaviour
 {
-    //public Text txt;
+    public TextMeshProUGUI txt;
     public const float DISTANCE_PER_SECOND = 500;
 
     private Note myNote;
@@ -15,6 +16,7 @@ public class UITapPoint : MonoBehaviour
     {
         myNote = note;
         rect = GetComponent<RectTransform>();
+        txt.text = note.mood.ToString() + " " + note.score;
 
         SetTime(currentTime);
     }

@@ -60,7 +60,8 @@ public class Card
     public string name;
 }
 
-public struct MoodValue
+[System.Serializable]
+public class MoodValue
 {
     public Note.Mood mood;
     public int value;
@@ -70,6 +71,20 @@ public struct MoodValue
 public class Song
 {
     public List<Note> notes;
+    
+    internal Note GetNote(float time)
+    {
+        for (int i = 0; i < notes.Count; i++)
+        {
+            if (notes[i].time < time + GameController.TAP_NODE_TIME_WINDOW &&
+                notes[i].time > time - GameController.TAP_NODE_TIME_WINDOW)
+            {
+                return notes[i];
+            }
+        }
+
+        return null;
+    }
 }
 
 [System.Serializable]
@@ -85,6 +100,7 @@ public class Note
 
     public Mood mood;
     public bool isComboNote = false;
+    public int score;
 
     public float time;
 }

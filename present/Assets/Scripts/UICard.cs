@@ -8,9 +8,14 @@ using TMPro;
 public class UICard : MonoBehaviour
 {
     public TextMeshProUGUI txt;
+    public Button button;
+
+    private Card card;
 
     internal void SetCard(Card card)
     {
+        this.card = card;
+
         string title = "???";
         string subtitle = "";
         if (card is MoodCard)
@@ -37,5 +42,14 @@ public class UICard : MonoBehaviour
             subtitle = "<size=93>" + c.mood.ToString() + "<sup>" + (c.multiplier * 100).ToString("###0") + "%</sup></size>\n";
         }
         txt.text = title + "\n" + subtitle;
+    }
+
+    internal void SetAction(Action<Card> onPlayCard)
+    {
+        if (onPlayCard != null && button != null)
+        {
+            button.onClick.RemoveAllListeners();
+            button.onClick.AddListener(()=> { onPlayCard.Invoke(card); });
+        }
     }
 }
