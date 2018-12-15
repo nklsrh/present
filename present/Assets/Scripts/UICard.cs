@@ -7,11 +7,15 @@ using TMPro;
 
 public class UICard : MonoBehaviour
 {
-    public TextMeshProUGUI txt;
+    //public TextMeshProUGUI txt;
     public Button button;
 
     private Card card;
     private DCard dcard;
+
+    public GameObject colorHolder;
+    public GameObject moodColor;
+
 
     internal void SetCard(DCard card)
     {
@@ -32,7 +36,10 @@ public class UICard : MonoBehaviour
             var c = card as MoodCard;
             for (int i = 0; i < c.moodChanges.Count; i++)
             {
-                ss += "<size=93>" + c.moodChanges[i].mood.ToString() + "<sup>" + c.moodChanges[i].value + "</sup></size>\n";
+               // ss += "<size=93>" + c.moodChanges[i].mood.ToString() + "<sup>" + c.moodChanges[i].value + "</sup></size>\n";
+                GameObject a = Instantiate<GameObject>(moodColor, colorHolder.transform);
+                a.GetComponent<MoodColorScript>().SetColor(c.moodChanges[i].mood.ToString(), c.moodChanges[i].value);
+                
             }
             subtitle = ss;
         }
@@ -48,7 +55,7 @@ public class UICard : MonoBehaviour
             var c = card as ComboCard;
             subtitle = "<size=93>" + c.mood.ToString() + "<sup>" + (c.multiplier * 100).ToString("###0") + "%</sup></size>\n";
         }
-        txt.text = title + "\n" + subtitle;
+        //txt.text = title + "\n" + subtitle;
     }
 
     internal void SetAction(Action<Card> onPlayCard)
@@ -68,4 +75,5 @@ public class UICard : MonoBehaviour
             button.onClick.AddListener(() => { onPlayCard.Invoke(dcard); });
         }
     }
+
 }

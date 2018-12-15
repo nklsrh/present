@@ -33,41 +33,41 @@ namespace DataTypes{
 		}
 	}
 	public class SheetStartingDeck: IEnumerable{
-		public System.DateTime updated = new System.DateTime(2018,12,15,11,31,16);
+		public System.DateTime updated = new System.DateTime(2018,12,15,11,48,58);
 		public readonly string[] labels = new string[]{"string id"};
 		private StartingDeck[] _rows = new StartingDeck[30];
 		public void Init() {
 			_rows = new StartingDeck[]{
-					new StartingDeck("card_mood_21"),
-					new StartingDeck("card_mood_42"),
-					new StartingDeck("card_mood_63"),
-					new StartingDeck("card_combo_3"),
-					new StartingDeck("card_combo_6"),
-					new StartingDeck("card_combo_9"),
+					new StartingDeck("card_draw_1"),
 					new StartingDeck("card_draw_2"),
-					new StartingDeck("card_mood_16"),
-					new StartingDeck("card_mood_4"),
-					new StartingDeck("card_mood_32"),
+					new StartingDeck("card_mood_52"),
+					new StartingDeck("card_mood_53"),
 					new StartingDeck("card_mood_54"),
-					new StartingDeck("card_mood_40"),
+					new StartingDeck("card_mood_56"),
+					new StartingDeck("card_mood_57"),
+					new StartingDeck("card_mood_60"),
+					new StartingDeck("card_mood_28"),
+					new StartingDeck("card_mood_9"),
+					new StartingDeck("card_mood_12"),
+					new StartingDeck("card_mood_16"),
+					new StartingDeck("card_mood_20"),
+					new StartingDeck("card_mood_24"),
+					new StartingDeck("card_mood_28"),
+					new StartingDeck("card_mood_32"),
+					new StartingDeck("card_mood_33"),
+					new StartingDeck("card_mood_34"),
+					new StartingDeck("card_mood_35"),
 					new StartingDeck("card_mood_36"),
 					new StartingDeck("card_mood_37"),
-					new StartingDeck("card_mood_62"),
-					new StartingDeck("card_mood_21"),
-					new StartingDeck("card_mood_42"),
-					new StartingDeck("card_mood_63"),
-					new StartingDeck("card_combo_3"),
-					new StartingDeck("card_combo_6"),
-					new StartingDeck("card_combo_9"),
-					new StartingDeck("card_draw_2"),
-					new StartingDeck("card_mood_16"),
-					new StartingDeck("card_mood_4"),
-					new StartingDeck("card_mood_32"),
-					new StartingDeck("card_mood_54"),
+					new StartingDeck("card_mood_38"),
+					new StartingDeck("card_mood_39"),
 					new StartingDeck("card_mood_40"),
-					new StartingDeck("card_mood_36"),
-					new StartingDeck("card_mood_37"),
-					new StartingDeck("card_mood_62")
+					new StartingDeck("card_mood_41"),
+					new StartingDeck("card_mood_42"),
+					new StartingDeck("card_mood_44"),
+					new StartingDeck("card_mood_45"),
+					new StartingDeck("card_mood_48"),
+					new StartingDeck("card_mood_29")
 				};
 		}
 			
@@ -145,36 +145,36 @@ namespace DataTypes{
 		}
 		//Specific Items
 
-		public StartingDeck card_mood_21{	get{ return _rows[0]; } }
-		public StartingDeck card_mood_42{	get{ return _rows[1]; } }
-		public StartingDeck card_mood_63{	get{ return _rows[2]; } }
-		public StartingDeck card_combo_3{	get{ return _rows[3]; } }
-		public StartingDeck card_combo_6{	get{ return _rows[4]; } }
-		public StartingDeck card_combo_9{	get{ return _rows[5]; } }
-		public StartingDeck card_draw_2{	get{ return _rows[6]; } }
-		public StartingDeck card_mood_16{	get{ return _rows[7]; } }
-		public StartingDeck card_mood_4{	get{ return _rows[8]; } }
-		public StartingDeck card_mood_32{	get{ return _rows[9]; } }
-		public StartingDeck card_mood_54{	get{ return _rows[10]; } }
-		public StartingDeck card_mood_40{	get{ return _rows[11]; } }
-		public StartingDeck card_mood_36{	get{ return _rows[12]; } }
-		public StartingDeck card_mood_37{	get{ return _rows[13]; } }
-		public StartingDeck card_mood_62{	get{ return _rows[14]; } }
-		public StartingDeck card_mood_2101{	get{ return _rows[15]; } }
-		public StartingDeck card_mood_4201{	get{ return _rows[16]; } }
-		public StartingDeck card_mood_6301{	get{ return _rows[17]; } }
-		public StartingDeck card_combo_301{	get{ return _rows[18]; } }
-		public StartingDeck card_combo_601{	get{ return _rows[19]; } }
-		public StartingDeck card_combo_901{	get{ return _rows[20]; } }
-		public StartingDeck card_draw_201{	get{ return _rows[21]; } }
-		public StartingDeck card_mood_1601{	get{ return _rows[22]; } }
-		public StartingDeck card_mood_401{	get{ return _rows[23]; } }
-		public StartingDeck card_mood_3201{	get{ return _rows[24]; } }
-		public StartingDeck card_mood_5401{	get{ return _rows[25]; } }
-		public StartingDeck card_mood_4001{	get{ return _rows[26]; } }
-		public StartingDeck card_mood_3601{	get{ return _rows[27]; } }
-		public StartingDeck card_mood_3701{	get{ return _rows[28]; } }
-		public StartingDeck card_mood_6201{	get{ return _rows[29]; } }
+		public StartingDeck card_draw_1{	get{ return _rows[0]; } }
+		public StartingDeck card_draw_2{	get{ return _rows[1]; } }
+		public StartingDeck card_mood_52{	get{ return _rows[2]; } }
+		public StartingDeck card_mood_53{	get{ return _rows[3]; } }
+		public StartingDeck card_mood_54{	get{ return _rows[4]; } }
+		public StartingDeck card_mood_56{	get{ return _rows[5]; } }
+		public StartingDeck card_mood_57{	get{ return _rows[6]; } }
+		public StartingDeck card_mood_60{	get{ return _rows[7]; } }
+		public StartingDeck card_mood_28{	get{ return _rows[8]; } }
+		public StartingDeck card_mood_9{	get{ return _rows[9]; } }
+		public StartingDeck card_mood_12{	get{ return _rows[10]; } }
+		public StartingDeck card_mood_16{	get{ return _rows[11]; } }
+		public StartingDeck card_mood_20{	get{ return _rows[12]; } }
+		public StartingDeck card_mood_24{	get{ return _rows[13]; } }
+		public StartingDeck card_mood_2801{	get{ return _rows[14]; } }
+		public StartingDeck card_mood_32{	get{ return _rows[15]; } }
+		public StartingDeck card_mood_33{	get{ return _rows[16]; } }
+		public StartingDeck card_mood_34{	get{ return _rows[17]; } }
+		public StartingDeck card_mood_35{	get{ return _rows[18]; } }
+		public StartingDeck card_mood_36{	get{ return _rows[19]; } }
+		public StartingDeck card_mood_37{	get{ return _rows[20]; } }
+		public StartingDeck card_mood_38{	get{ return _rows[21]; } }
+		public StartingDeck card_mood_39{	get{ return _rows[22]; } }
+		public StartingDeck card_mood_40{	get{ return _rows[23]; } }
+		public StartingDeck card_mood_41{	get{ return _rows[24]; } }
+		public StartingDeck card_mood_42{	get{ return _rows[25]; } }
+		public StartingDeck card_mood_44{	get{ return _rows[26]; } }
+		public StartingDeck card_mood_45{	get{ return _rows[27]; } }
+		public StartingDeck card_mood_48{	get{ return _rows[28]; } }
+		public StartingDeck card_mood_29{	get{ return _rows[29]; } }
 
 	}
 }
@@ -196,9 +196,9 @@ namespace DataTypes{
 		}
 	}
 	public class SheetCard: IEnumerable{
-		public System.DateTime updated = new System.DateTime(2018,12,15,11,31,16);
+		public System.DateTime updated = new System.DateTime(2018,12,15,11,48,58);
 		public readonly string[] labels = new string[]{"id","index","name","description","enum cardType","int cardsToDraw","string comboMood","float comboMultiplier","string[] moodChanges"};
-		private Card[] _rows = new Card[74];
+		private Card[] _rows = new Card[64];
 		public void Init() {
 			_rows = new Card[]{
 					new Card("card_mood_1",1,"","",DCard.eCardType.mood,0,"",0f,new string[]{"A","0","B","0","C","1"}),
@@ -231,7 +231,6 @@ namespace DataTypes{
 					new Card("card_mood_28",28,"","",DCard.eCardType.mood,0,"",0f,new string[]{"A","1","B","3","C","0"}),
 					new Card("card_mood_29",29,"","",DCard.eCardType.mood,0,"",0f,new string[]{"A","1","B","3","C","1"}),
 					new Card("card_mood_30",30,"","",DCard.eCardType.mood,0,"",0f,new string[]{"A","1","B","3","C","2"}),
-					new Card("card_mood_31",31,"","",DCard.eCardType.mood,0,"",0f,new string[]{"A","1","B","3","C","3"}),
 					new Card("card_mood_32",32,"","",DCard.eCardType.mood,0,"",0f,new string[]{"A","2","B","0","C","0"}),
 					new Card("card_mood_33",33,"","",DCard.eCardType.mood,0,"",0f,new string[]{"A","2","B","0","C","1"}),
 					new Card("card_mood_34",34,"","",DCard.eCardType.mood,0,"",0f,new string[]{"A","2","B","0","C","2"}),
@@ -243,11 +242,8 @@ namespace DataTypes{
 					new Card("card_mood_40",40,"","",DCard.eCardType.mood,0,"",0f,new string[]{"A","2","B","2","C","0"}),
 					new Card("card_mood_41",41,"","",DCard.eCardType.mood,0,"",0f,new string[]{"A","2","B","2","C","1"}),
 					new Card("card_mood_42",42,"","",DCard.eCardType.mood,0,"",0f,new string[]{"A","2","B","2","C","2"}),
-					new Card("card_mood_43",43,"","",DCard.eCardType.mood,0,"",0f,new string[]{"A","2","B","2","C","3"}),
 					new Card("card_mood_44",44,"","",DCard.eCardType.mood,0,"",0f,new string[]{"A","2","B","3","C","0"}),
 					new Card("card_mood_45",45,"","",DCard.eCardType.mood,0,"",0f,new string[]{"A","2","B","3","C","1"}),
-					new Card("card_mood_46",46,"","",DCard.eCardType.mood,0,"",0f,new string[]{"A","2","B","3","C","2"}),
-					new Card("card_mood_47",47,"","",DCard.eCardType.mood,0,"",0f,new string[]{"A","2","B","3","C","3"}),
 					new Card("card_mood_48",48,"","",DCard.eCardType.mood,0,"",0f,new string[]{"A","3","B","0","C","0"}),
 					new Card("card_mood_49",49,"","",DCard.eCardType.mood,0,"",0f,new string[]{"A","3","B","0","C","1"}),
 					new Card("card_mood_50",50,"","",DCard.eCardType.mood,0,"",0f,new string[]{"A","3","B","0","C","2"}),
@@ -255,15 +251,9 @@ namespace DataTypes{
 					new Card("card_mood_52",52,"","",DCard.eCardType.mood,0,"",0f,new string[]{"A","3","B","1","C","0"}),
 					new Card("card_mood_53",53,"","",DCard.eCardType.mood,0,"",0f,new string[]{"A","3","B","1","C","1"}),
 					new Card("card_mood_54",54,"","",DCard.eCardType.mood,0,"",0f,new string[]{"A","3","B","1","C","2"}),
-					new Card("card_mood_55",55,"","",DCard.eCardType.mood,0,"",0f,new string[]{"A","3","B","1","C","3"}),
 					new Card("card_mood_56",56,"","",DCard.eCardType.mood,0,"",0f,new string[]{"A","3","B","2","C","0"}),
 					new Card("card_mood_57",57,"","",DCard.eCardType.mood,0,"",0f,new string[]{"A","3","B","2","C","1"}),
-					new Card("card_mood_58",58,"","",DCard.eCardType.mood,0,"",0f,new string[]{"A","3","B","2","C","2"}),
-					new Card("card_mood_59",59,"","",DCard.eCardType.mood,0,"",0f,new string[]{"A","3","B","2","C","3"}),
 					new Card("card_mood_60",60,"","",DCard.eCardType.mood,0,"",0f,new string[]{"A","3","B","3","C","0"}),
-					new Card("card_mood_61",61,"","",DCard.eCardType.mood,0,"",0f,new string[]{"A","3","B","3","C","1"}),
-					new Card("card_mood_62",62,"","",DCard.eCardType.mood,0,"",0f,new string[]{"A","3","B","3","C","2"}),
-					new Card("card_mood_63",63,"","",DCard.eCardType.mood,0,"",0f,new string[]{"A","3","B","3","C","3"}),
 					new Card("card_combo_1",64,"","",DCard.eCardType.combo,0,"A",2f,new string[]{}),
 					new Card("card_combo_2",65,"","",DCard.eCardType.combo,0,"A",3f,new string[]{}),
 					new Card("card_combo_3",66,"","",DCard.eCardType.combo,0,"A",5f,new string[]{}),
@@ -382,50 +372,40 @@ namespace DataTypes{
 		public Card card_mood_28{	get{ return _rows[27]; } }
 		public Card card_mood_29{	get{ return _rows[28]; } }
 		public Card card_mood_30{	get{ return _rows[29]; } }
-		public Card card_mood_31{	get{ return _rows[30]; } }
-		public Card card_mood_32{	get{ return _rows[31]; } }
-		public Card card_mood_33{	get{ return _rows[32]; } }
-		public Card card_mood_34{	get{ return _rows[33]; } }
-		public Card card_mood_35{	get{ return _rows[34]; } }
-		public Card card_mood_36{	get{ return _rows[35]; } }
-		public Card card_mood_37{	get{ return _rows[36]; } }
-		public Card card_mood_38{	get{ return _rows[37]; } }
-		public Card card_mood_39{	get{ return _rows[38]; } }
-		public Card card_mood_40{	get{ return _rows[39]; } }
-		public Card card_mood_41{	get{ return _rows[40]; } }
-		public Card card_mood_42{	get{ return _rows[41]; } }
-		public Card card_mood_43{	get{ return _rows[42]; } }
-		public Card card_mood_44{	get{ return _rows[43]; } }
-		public Card card_mood_45{	get{ return _rows[44]; } }
-		public Card card_mood_46{	get{ return _rows[45]; } }
-		public Card card_mood_47{	get{ return _rows[46]; } }
-		public Card card_mood_48{	get{ return _rows[47]; } }
-		public Card card_mood_49{	get{ return _rows[48]; } }
-		public Card card_mood_50{	get{ return _rows[49]; } }
-		public Card card_mood_51{	get{ return _rows[50]; } }
-		public Card card_mood_52{	get{ return _rows[51]; } }
-		public Card card_mood_53{	get{ return _rows[52]; } }
-		public Card card_mood_54{	get{ return _rows[53]; } }
-		public Card card_mood_55{	get{ return _rows[54]; } }
-		public Card card_mood_56{	get{ return _rows[55]; } }
-		public Card card_mood_57{	get{ return _rows[56]; } }
-		public Card card_mood_58{	get{ return _rows[57]; } }
-		public Card card_mood_59{	get{ return _rows[58]; } }
-		public Card card_mood_60{	get{ return _rows[59]; } }
-		public Card card_mood_61{	get{ return _rows[60]; } }
-		public Card card_mood_62{	get{ return _rows[61]; } }
-		public Card card_mood_63{	get{ return _rows[62]; } }
-		public Card card_combo_1{	get{ return _rows[63]; } }
-		public Card card_combo_2{	get{ return _rows[64]; } }
-		public Card card_combo_3{	get{ return _rows[65]; } }
-		public Card card_combo_4{	get{ return _rows[66]; } }
-		public Card card_combo_5{	get{ return _rows[67]; } }
-		public Card card_combo_6{	get{ return _rows[68]; } }
-		public Card card_combo_7{	get{ return _rows[69]; } }
-		public Card card_combo_8{	get{ return _rows[70]; } }
-		public Card card_combo_9{	get{ return _rows[71]; } }
-		public Card card_draw_1{	get{ return _rows[72]; } }
-		public Card card_draw_2{	get{ return _rows[73]; } }
+		public Card card_mood_32{	get{ return _rows[30]; } }
+		public Card card_mood_33{	get{ return _rows[31]; } }
+		public Card card_mood_34{	get{ return _rows[32]; } }
+		public Card card_mood_35{	get{ return _rows[33]; } }
+		public Card card_mood_36{	get{ return _rows[34]; } }
+		public Card card_mood_37{	get{ return _rows[35]; } }
+		public Card card_mood_38{	get{ return _rows[36]; } }
+		public Card card_mood_39{	get{ return _rows[37]; } }
+		public Card card_mood_40{	get{ return _rows[38]; } }
+		public Card card_mood_41{	get{ return _rows[39]; } }
+		public Card card_mood_42{	get{ return _rows[40]; } }
+		public Card card_mood_44{	get{ return _rows[41]; } }
+		public Card card_mood_45{	get{ return _rows[42]; } }
+		public Card card_mood_48{	get{ return _rows[43]; } }
+		public Card card_mood_49{	get{ return _rows[44]; } }
+		public Card card_mood_50{	get{ return _rows[45]; } }
+		public Card card_mood_51{	get{ return _rows[46]; } }
+		public Card card_mood_52{	get{ return _rows[47]; } }
+		public Card card_mood_53{	get{ return _rows[48]; } }
+		public Card card_mood_54{	get{ return _rows[49]; } }
+		public Card card_mood_56{	get{ return _rows[50]; } }
+		public Card card_mood_57{	get{ return _rows[51]; } }
+		public Card card_mood_60{	get{ return _rows[52]; } }
+		public Card card_combo_1{	get{ return _rows[53]; } }
+		public Card card_combo_2{	get{ return _rows[54]; } }
+		public Card card_combo_3{	get{ return _rows[55]; } }
+		public Card card_combo_4{	get{ return _rows[56]; } }
+		public Card card_combo_5{	get{ return _rows[57]; } }
+		public Card card_combo_6{	get{ return _rows[58]; } }
+		public Card card_combo_7{	get{ return _rows[59]; } }
+		public Card card_combo_8{	get{ return _rows[60]; } }
+		public Card card_combo_9{	get{ return _rows[61]; } }
+		public Card card_draw_1{	get{ return _rows[62]; } }
+		public Card card_draw_2{	get{ return _rows[63]; } }
 
 	}
 }
@@ -447,7 +427,7 @@ namespace DataTypes{
 		}
 	}
 	public class SheetLevel: IEnumerable{
-		public System.DateTime updated = new System.DateTime(2018,12,15,11,31,16);
+		public System.DateTime updated = new System.DateTime(2018,12,15,11,48,58);
 		public readonly string[] labels = new string[]{"id","int startA","int startB","int startC","int scoreA","int scoreB","int scoreC","int deckSize","string[] moodChanges"};
 		private Level[] _rows = new Level[1];
 		public void Init() {
@@ -547,7 +527,7 @@ namespace DataTypes{
 		}
 	}
 	public class SheetTimings: IEnumerable{
-		public System.DateTime updated = new System.DateTime(2018,12,15,11,31,16);
+		public System.DateTime updated = new System.DateTime(2018,12,15,11,48,58);
 		public readonly string[] labels = new string[]{"id","string[] moodChanges"};
 		private Timings[] _rows = new Timings[1];
 		public void Init() {

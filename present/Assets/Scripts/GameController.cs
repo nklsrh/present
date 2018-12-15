@@ -220,11 +220,10 @@ public class GameController : MonoBehaviour
             var mood = moodChange.mood;
             int score = moodChange.value;
 
-            var values = moodValues.FindAll(r => r.mood == mood);
-
-            for (int j = 0; j < values.Count; j++)
+            if (note.moodScores.ContainsKey(mood))
             {
-                if (note.moodScores.ContainsKey(mood))
+                var values = moodValues.FindAll(r => r.mood == mood);
+                for (int j = 0; j < values.Count; j++)
                 {
                     values[j].value += score - note.moodScores[mood];
                     uiScoring.SetScore(values[j].mood, values[j].value);
