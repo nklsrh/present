@@ -2545,65 +2545,35 @@ MonoBehaviour:
   uiScoring: {fileID: 1084006617}
   song:
     notes:
-    - moods: 00000000
-      isComboNote: 0
-      score: 1
+    - isComboNote: 0
       time: 1.5
-    - moods: 00000000
-      isComboNote: 0
-      score: 1
+    - isComboNote: 0
       time: 3.5
-    - moods: 0100000003000000
-      isComboNote: 0
-      score: 1
+    - isComboNote: 0
       time: 5
-    - moods: 01000000
-      isComboNote: 0
-      score: 2
+    - isComboNote: 0
       time: 7
-    - moods: 02000000
-      isComboNote: 0
-      score: 1
+    - isComboNote: 0
       time: 9
-    - moods: 00000000
-      isComboNote: 0
-      score: 2
+    - isComboNote: 0
       time: 11
-    - moods: 00000000
-      isComboNote: 0
-      score: 2
+    - isComboNote: 0
       time: 13
-    - moods: 00000000
-      isComboNote: 0
-      score: 1
+    - isComboNote: 0
       time: 16
-    - moods: 00000000
-      isComboNote: 0
-      score: 1
+    - isComboNote: 0
       time: 19
-    - moods: 00000000
-      isComboNote: 0
-      score: 3
+    - isComboNote: 0
       time: 22
-    - moods: 00000000
-      isComboNote: 0
-      score: 1
+    - isComboNote: 0
       time: 26
-    - moods: 00000000
-      isComboNote: 0
-      score: 1
+    - isComboNote: 0
       time: 28
-    - moods: 00000000
-      isComboNote: 0
-      score: 2
+    - isComboNote: 0
       time: 31
-    - moods: 00000000
-      isComboNote: 0
-      score: 1
+    - isComboNote: 0
       time: 35
-    - moods: 00000000
-      isComboNote: 0
-      score: 2
+    - isComboNote: 0
       time: 39
   hand: []
   deck: []
