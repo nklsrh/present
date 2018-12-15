@@ -7,6 +7,8 @@ using System.Collections.Generic;
 public class Data{
 	//Document URL: https://spreadsheets.google.com/feeds/worksheets/1vOCuBaWoXD-GBEl4aChejG4XCYaoemyS4A36-LUYNqE/public/basic?alt=json-in-script
 
+	//Sheet SheetStartingDeck
+	public static DataTypes.SheetStartingDeck startingDeck = new DataTypes.SheetStartingDeck();
 	//Sheet SheetCard
 	public static DataTypes.SheetCard card = new DataTypes.SheetCard();
 	//Sheet SheetLevel
@@ -15,11 +17,167 @@ public class Data{
 	public static DataTypes.SheetTimings timings = new DataTypes.SheetTimings();
 	static Data(){
 		//Static constructor that initialises each sheet data
-		card.Init(); level.Init(); timings.Init(); 
+		startingDeck.Init(); card.Init(); level.Init(); timings.Init(); 
 	}
 }
 
 
+namespace DataTypes{
+	public class StartingDeck{
+		public string id;
+
+		public StartingDeck(){}
+
+		public StartingDeck(string id){
+			this.id = id;
+		}
+	}
+	public class SheetStartingDeck: IEnumerable{
+		public System.DateTime updated = new System.DateTime(2018,12,15,11,6,42);
+		public readonly string[] labels = new string[]{"string id"};
+		private StartingDeck[] _rows = new StartingDeck[30];
+		public void Init() {
+			_rows = new StartingDeck[]{
+					new StartingDeck("card_mood_21"),
+					new StartingDeck("card_mood_42"),
+					new StartingDeck("card_mood_63"),
+					new StartingDeck("card_combo_3"),
+					new StartingDeck("card_combo_6"),
+					new StartingDeck("card_combo_9"),
+					new StartingDeck("card_draw_2"),
+					new StartingDeck("card_mood_16"),
+					new StartingDeck("card_mood_4"),
+					new StartingDeck("card_mood_32"),
+					new StartingDeck("card_mood_54"),
+					new StartingDeck("card_mood_40"),
+					new StartingDeck("card_mood_36"),
+					new StartingDeck("card_mood_37"),
+					new StartingDeck("card_mood_62"),
+					new StartingDeck("card_mood_21"),
+					new StartingDeck("card_mood_42"),
+					new StartingDeck("card_mood_63"),
+					new StartingDeck("card_combo_3"),
+					new StartingDeck("card_combo_6"),
+					new StartingDeck("card_combo_9"),
+					new StartingDeck("card_draw_2"),
+					new StartingDeck("card_mood_16"),
+					new StartingDeck("card_mood_4"),
+					new StartingDeck("card_mood_32"),
+					new StartingDeck("card_mood_54"),
+					new StartingDeck("card_mood_40"),
+					new StartingDeck("card_mood_36"),
+					new StartingDeck("card_mood_37"),
+					new StartingDeck("card_mood_62")
+				};
+		}
+			
+		public IEnumerator GetEnumerator(){
+			return new SheetEnumerator(this);
+		}
+		private class SheetEnumerator : IEnumerator{
+			private int idx = -1;
+			private SheetStartingDeck t;
+			public SheetEnumerator(SheetStartingDeck t){
+				this.t = t;
+			}
+			public bool MoveNext(){
+				if (idx < t._rows.Length - 1){
+					idx++;
+					return true;
+				}else{
+					return false;
+				}
+			}
+			public void Reset(){
+				idx = -1;
+			}
+			public object Current{
+				get{
+					return t._rows[idx];
+				}
+			}
+		}
+		/// <summary>
+		/// Length of rows of this sheet
+		/// </summary>
+		public int Length{ get{ return _rows.Length; } }
+		/// <summary>
+		/// Access row item by index
+		/// </summary>
+		public StartingDeck this[int index]{
+			get{
+				return _rows[index];
+			}
+		}
+		/// <summary>
+		/// Access row item by first culumn string identifier
+		/// </summary>
+		public StartingDeck this[string id]{
+			get{
+				for (int i = 0; i < _rows.Length; i++) {
+					if( _rows[i].id == id){ return _rows[i]; }
+				}
+				return null;
+			}
+		}
+		/// <summary>
+		/// Does an item exist with the following key?
+		/// </summary>
+		public bool ContainsKey(string key){
+			for (int i = 0; i < _rows.Length; i++) {
+				if( _rows[i].id == key){ return true; }
+			}
+			return false;
+		}
+		/// <summary>
+		/// List of items
+		/// </summary>
+		/// <returns>Returns the internal array of items.</returns>
+		public StartingDeck[] ToArray(){
+			return _rows;
+		}
+		/// <summary>
+		/// Random item
+		/// </summary>
+		/// <returns>Returns a random item.</returns>
+		public StartingDeck Random() {
+			return _rows[ UnityEngine.Random.Range(0, _rows.Length) ];
+		}
+		//Specific Items
+
+		public StartingDeck card_mood_21{	get{ return _rows[0]; } }
+		public StartingDeck card_mood_42{	get{ return _rows[1]; } }
+		public StartingDeck card_mood_63{	get{ return _rows[2]; } }
+		public StartingDeck card_combo_3{	get{ return _rows[3]; } }
+		public StartingDeck card_combo_6{	get{ return _rows[4]; } }
+		public StartingDeck card_combo_9{	get{ return _rows[5]; } }
+		public StartingDeck card_draw_2{	get{ return _rows[6]; } }
+		public StartingDeck card_mood_16{	get{ return _rows[7]; } }
+		public StartingDeck card_mood_4{	get{ return _rows[8]; } }
+		public StartingDeck card_mood_32{	get{ return _rows[9]; } }
+		public StartingDeck card_mood_54{	get{ return _rows[10]; } }
+		public StartingDeck card_mood_40{	get{ return _rows[11]; } }
+		public StartingDeck card_mood_36{	get{ return _rows[12]; } }
+		public StartingDeck card_mood_37{	get{ return _rows[13]; } }
+		public StartingDeck card_mood_62{	get{ return _rows[14]; } }
+		public StartingDeck card_mood_2101{	get{ return _rows[15]; } }
+		public StartingDeck card_mood_4201{	get{ return _rows[16]; } }
+		public StartingDeck card_mood_6301{	get{ return _rows[17]; } }
+		public StartingDeck card_combo_301{	get{ return _rows[18]; } }
+		public StartingDeck card_combo_601{	get{ return _rows[19]; } }
+		public StartingDeck card_combo_901{	get{ return _rows[20]; } }
+		public StartingDeck card_draw_201{	get{ return _rows[21]; } }
+		public StartingDeck card_mood_1601{	get{ return _rows[22]; } }
+		public StartingDeck card_mood_401{	get{ return _rows[23]; } }
+		public StartingDeck card_mood_3201{	get{ return _rows[24]; } }
+		public StartingDeck card_mood_5401{	get{ return _rows[25]; } }
+		public StartingDeck card_mood_4001{	get{ return _rows[26]; } }
+		public StartingDeck card_mood_3601{	get{ return _rows[27]; } }
+		public StartingDeck card_mood_3701{	get{ return _rows[28]; } }
+		public StartingDeck card_mood_6201{	get{ return _rows[29]; } }
+
+	}
+}
 namespace DataTypes{
 	public class Card:DCard{
 
@@ -38,7 +196,7 @@ namespace DataTypes{
 		}
 	}
 	public class SheetCard: IEnumerable{
-		public System.DateTime updated = new System.DateTime(2018,12,15,9,40,0);
+		public System.DateTime updated = new System.DateTime(2018,12,15,11,6,42);
 		public readonly string[] labels = new string[]{"id","index","name","description","enum cardType","int cardsToDraw","string comboMood","float comboMultiplier","string[] moodChanges"};
 		private Card[] _rows = new Card[74];
 		public void Init() {
@@ -276,7 +434,7 @@ namespace DataTypes{
 
 		public Level(){}
 
-		public Level(string id, int startA, int startB, int startC, int scoreA, int scoreB, int scoreC, string[] moodChanges){
+		public Level(string id, int startA, int startB, int startC, int scoreA, int scoreB, int scoreC, int deckSize, string[] moodChanges){
 			this.id = id;
 			this.startA = startA;
 			this.startB = startB;
@@ -284,16 +442,17 @@ namespace DataTypes{
 			this.scoreA = scoreA;
 			this.scoreB = scoreB;
 			this.scoreC = scoreC;
+			this.deckSize = deckSize;
 			this.moodChanges = moodChanges;
 		}
 	}
 	public class SheetLevel: IEnumerable{
-		public System.DateTime updated = new System.DateTime(2018,12,15,9,40,0);
-		public readonly string[] labels = new string[]{"id","int startA","int startB","int startC","int scoreA","int scoreB","int scoreC","string[] moodChanges"};
+		public System.DateTime updated = new System.DateTime(2018,12,15,11,6,42);
+		public readonly string[] labels = new string[]{"id","int startA","int startB","int startC","int scoreA","int scoreB","int scoreC","int deckSize","string[] moodChanges"};
 		private Level[] _rows = new Level[1];
 		public void Init() {
 			_rows = new Level[]{
-					new Level("test_level",20,10,60,70,60,50,new string[]{"0;1;1;0","0;1;1;0","0;2;1;0","0;1;3;0","0;2;2;0","0;1;1;0","0;1;0;0","0;1;0;0","0;1;0;0","0;0;1;0","0;0;2;0","0;0;3;0","0;0;1;0","0;1;1;0","0;3;3;0","0;1;1;0","0;2;1;0","0;0;1;0","0;1;0;0","0;2;2;0","0;1;0;0","0;0;2;0","0;0;1;0","0;3;3;0"})
+					new Level("test_level",20,10,60,70,60,50,7,new string[]{"0;1;1;0","0;1;1;0","0;2;1;0","0;1;3;0","0;2;2;0","0;1;1;0","0;1;0;0","0;1;0;0","0;1;0;0","0;0;1;0","0;0;2;0","0;0;3;0","0;0;1;0","0;1;1;0","0;3;3;0","0;1;1;0","0;2;1;0","0;0;1;0","0;1;0;0","0;2;2;0","0;1;0;0","0;0;2;0","0;0;1;0","0;3;3;0"})
 				};
 		}
 			
@@ -388,12 +547,12 @@ namespace DataTypes{
 		}
 	}
 	public class SheetTimings: IEnumerable{
-		public System.DateTime updated = new System.DateTime(2018,12,15,9,40,0);
+		public System.DateTime updated = new System.DateTime(2018,12,15,11,6,42);
 		public readonly string[] labels = new string[]{"id","string[] moodChanges"};
 		private Timings[] _rows = new Timings[1];
 		public void Init() {
 			_rows = new Timings[]{
-					new Timings("test_level",new string[]{"1","2","1","1","2","0.5_COMBO","0.5","1","3","1","2","1","1","1","0.5","0.5","1","1","2","0.5","0.5","1","0.5","1"})
+					new Timings("test_level",new string[]{"2","3","2","2","3","0.5_COMBO","2","2","4","2","3","2","2","2","1","1","2","2","3","1","1","1","2","1"})
 				};
 		}
 			

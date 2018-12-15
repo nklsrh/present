@@ -12,4 +12,5 @@ public class DLevel
     public int scoreB;
     public int scoreC;
     public string[] moodChanges;
+    public int deckSize;
 }

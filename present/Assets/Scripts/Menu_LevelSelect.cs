@@ -25,42 +25,13 @@ public class Menu_LevelSelect : MonoBehaviour {
         inventoryCards = new List<DCard>();
         inventoryCards.AddRange(Data.card.ToArray());
 
-        selectedCards = new List<DCard>()
-        {
-            Data.card.card_mood_21
-            ,    Data.card.card_mood_42
-            ,    Data.card.card_mood_63
-            ,    Data.card.card_combo_3
-            ,    Data.card.card_combo_6
-            ,    Data.card.card_combo_9
-            ,    Data.card.card_draw_2
-            ,    Data.card.card_mood_16
-            ,    Data.card.card_mood_4
-            ,    Data.card.card_mood_32
-            ,    Data.card.card_mood_54
-            ,    Data.card.card_mood_40
-            ,    Data.card.card_mood_36
-            ,    Data.card.card_mood_37
-            ,    Data.card.card_mood_62,   Data.card.card_mood_21
-            ,    Data.card.card_mood_42
-            ,    Data.card.card_mood_63
-            ,    Data.card.card_combo_3
-            ,    Data.card.card_combo_6
-            ,    Data.card.card_combo_9
-            ,    Data.card.card_draw_2
-            ,    Data.card.card_mood_16
-            ,    Data.card.card_mood_4
-            ,    Data.card.card_mood_32
-            ,    Data.card.card_mood_54
-            ,    Data.card.card_mood_40
-            ,    Data.card.card_mood_36
-            ,    Data.card.card_mood_37
-            ,    Data.card.card_mood_62,
-        };
+        selectedCards = new List<DCard>();
 
-        for (int i = 0; i < selectedCards.Count; i++)
+        for (int i = 0; i < Data.startingDeck.Length; i++)
         {
-            inventoryCards.Remove(selectedCards[i]);
+            var card = Data.card[Data.startingDeck[i].id];
+            selectedCards.Add(card);
+            inventoryCards.Remove(card);
         }
 
         Refresh();
@@ -85,6 +56,7 @@ public class Menu_LevelSelect : MonoBehaviour {
 
         animations.Play("menu_slide_levels");
 
+
         BuildDeck();
     }
 
@@ -93,6 +65,18 @@ public class Menu_LevelSelect : MonoBehaviour {
         levelBtn.SetLevel(level, ()=>
         {
             selectedLevel = level;
+
+            // limit number of selected cards to max size specified by level
+            for (int i = selectedCards.Count - 1; i >= 0; i--)
+            {
+                if (i > selectedLevel.deckSize)
+                {
+                    var card = selectedCards[i];
+                    selectedCards.Remove(card);
+                    inventoryCards.Add(card);
+                }
+            }
+
             animations.Play("menu_slide_cards");
         });
     }
@@ -130,10 +114,13 @@ public class Menu_LevelSelect : MonoBehaviour {
 
     private void OnSelectCardInventory(DCard obj)
     {
-        selectedCards.Add(obj);
-        inventoryCards.Remove(obj);
+        if (selectedCards.Count < selectedLevel.deckSize)
+        {
+            selectedCards.Add(obj);
+            inventoryCards.Remove(obj);
 
-        BuildDeck();
+            BuildDeck();
+        }
     }
 
     private void OnSelectCardDeck(DCard obj)
