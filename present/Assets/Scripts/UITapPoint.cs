@@ -7,7 +7,7 @@ using TMPro;
 public class UITapPoint : MonoBehaviour
 {
     public TextMeshProUGUI txt;
-    public const float DISTANCE_PER_SECOND = 500;
+    public const float DISTANCE_PER_SECOND = 200;
 
     private Note myNote;
     private RectTransform rect;
@@ -16,7 +16,12 @@ public class UITapPoint : MonoBehaviour
     {
         myNote = note;
         rect = GetComponent<RectTransform>();
-        txt.text = note.mood.ToString() + " " + note.score;
+        List<string> lis = new List<string>();
+        foreach (var item in note.moods)
+        {
+            lis.Add(item.ToString());
+        }
+        txt.text = DMUtils.StringArray(lis.ToArray()) + " " + note.score;
 
         SetTime(currentTime);
     }

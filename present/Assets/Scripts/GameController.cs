@@ -50,23 +50,26 @@ public class GameController : MonoBehaviour
         deck = new List<Card>();
 
         deck.Add(new ComboCard() { mood = Note.Mood.A, multiplier = 2.0f });
-        deck.Add(new MoodCard() { moodChanges = new List<MoodValue>() { new MoodValue() { mood = Note.Mood.A, value = 1 } } });
+        deck.Add(new MoodCard() { moodChanges = new List<MoodValue>() { new MoodValue() { mood = Note.Mood.A, value = 3 }, new MoodValue() { mood = Note.Mood.B, value = 3 } } });
+        deck.Add(new ComboCard() { mood = Note.Mood.A, multiplier = 2.0f });
+        deck.Add(new MoodCard() { moodChanges = new List<MoodValue>() { new MoodValue() { mood = Note.Mood.A, value = 3 } } });
         deck.Add(new DrawCard() { cardsToDraw = 3 });
+        deck.Add(new MoodCard() { moodChanges = new List<MoodValue>() { new MoodValue() { mood = Note.Mood.A, value = 1 } } });
+        deck.Add(new MoodCard() { moodChanges = new List<MoodValue>() { new MoodValue() { mood = Note.Mood.A, value = 2 } } });
+        deck.Add(new DrawCard() { cardsToDraw = 2 });
+        deck.Add(new MoodCard() { moodChanges = new List<MoodValue>() { new MoodValue() { mood = Note.Mood.A, value = 5 }, new MoodValue() { mood = Note.Mood.C, value = 4 } } });
         deck.Add(new ComboCard() { mood = Note.Mood.A, multiplier = 2.0f });
         deck.Add(new MoodCard() { moodChanges = new List<MoodValue>() { new MoodValue() { mood = Note.Mood.A, value = 1 } } });
         deck.Add(new DrawCard() { cardsToDraw = 3 });
         deck.Add(new ComboCard() { mood = Note.Mood.A, multiplier = 2.0f });
-        deck.Add(new MoodCard() { moodChanges = new List<MoodValue>() { new MoodValue() { mood = Note.Mood.A, value = 1 } } });
-        deck.Add(new DrawCard() { cardsToDraw = 3 });
+        deck.Add(new MoodCard() { moodChanges = new List<MoodValue>() { new MoodValue() { mood = Note.Mood.A, value = 2 }, new MoodValue() { mood = Note.Mood.B, value = 1 } } });
+        deck.Add(new MoodCard() { moodChanges = new List<MoodValue>() { new MoodValue() { mood = Note.Mood.A, value = 4 } } });
+        deck.Add(new MoodCard() { moodChanges = new List<MoodValue>() { new MoodValue() { mood = Note.Mood.A, value = 3 }, new MoodValue() { mood = Note.Mood.C, value = 2 } } });
+        deck.Add(new MoodCard() { moodChanges = new List<MoodValue>() { new MoodValue() { mood = Note.Mood.A, value = 4 } } });
+        deck.Add(new MoodCard() { moodChanges = new List<MoodValue>() { new MoodValue() { mood = Note.Mood.A, value = 3 } } });
         deck.Add(new ComboCard() { mood = Note.Mood.A, multiplier = 2.0f });
-        deck.Add(new MoodCard() { moodChanges = new List<MoodValue>() { new MoodValue() { mood = Note.Mood.A, value = 1 } } });
-        deck.Add(new DrawCard() { cardsToDraw = 3 });
-        deck.Add(new ComboCard() { mood = Note.Mood.A, multiplier = 2.0f });
-        deck.Add(new MoodCard() { moodChanges = new List<MoodValue>() { new MoodValue() { mood = Note.Mood.A, value = 1 } } });
-        deck.Add(new DrawCard() { cardsToDraw = 3 });
-        deck.Add(new ComboCard() { mood = Note.Mood.A, multiplier = 2.0f });
-        deck.Add(new MoodCard() { moodChanges = new List<MoodValue>() { new MoodValue() { mood = Note.Mood.A, value = 1 } } });
-        deck.Add(new DrawCard() { cardsToDraw = 3 });
+        deck.Add(new MoodCard() { moodChanges = new List<MoodValue>() { new MoodValue() { mood = Note.Mood.A, value = 2 }, new MoodValue() { mood = Note.Mood.B, value = 5 } } });
+        deck.Add(new DrawCard() { cardsToDraw = 2 });
     }
 
     public void SetupHand()
@@ -128,7 +131,7 @@ public class GameController : MonoBehaviour
             var note = GetNote(currentTime);
             if (note != null)
             {
-                var moodMatches = c.moodChanges.FindAll(r => r.mood == note.mood);
+                var moodMatches = c.moodChanges.FindAll(r => note.moods.Contains(r.mood));
                 if (note != null)
                 {
                     //if (moodMatches.Count > 0)
@@ -164,23 +167,28 @@ public class GameController : MonoBehaviour
         uiHand.Setup(hand);
     }
 
-    private void ScoreMood(Note note, MoodCard c, List<MoodValue> matches)
+    private void ScoreMood(Note note, MoodCard card, List<MoodValue> matches)
     {
-        int score = 0;
-        List<Note.Mood> moods = new List<Note.Mood>();
-        for (int i = 0; i < c.moodChanges.Count; i++)
+        for (int i = 0; i < card.moodChanges.Count; i++)
         {
-            score += c.moodChanges[i].value;
-            moods.Add(c.moodChanges[i].mood);
-            Debug.Log(c.moodChanges[i].mood + " SCORE! " + c.moodChanges[i].value);
-        }
+            var moodChange = card.moodChanges[i];
 
-        var values = moodValues.FindAll(r => r.mood == note.mood || (r.mood == Note.Mood.Blank && moods.Contains(r.mood)));
-        for (int i = 0; i < values.Count; i++)
-        {
-            values[i].value += score;
-            uiScoring.SetScore(values[i].mood, values[i].value, 100);
-            Debug.Log(values[i].mood + " CCCSCORE! " + values[i].value);
+            var mood = moodChange.mood;
+            int score = moodChange.value;
+
+            var values = moodValues.FindAll(r => (note.moods.Count == 0 || r.mood == Note.Mood.Blank) && mood == r.mood);
+            for (int j = 0; j < values.Count; j++)
+            {
+                values[j].value += score - note.score;
+                uiScoring.SetScore(values[j].mood, values[j].value, 100);
+
+                Debug.Log(values[j].mood + " CCCSCORE! " + values[j].value);
+            }
+
+
+
+
+            Debug.Log(card.moodChanges[i].mood + " SCORE! " + card.moodChanges[i].value);
         }
     }
 }

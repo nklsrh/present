@@ -1017,63 +1017,63 @@ MonoBehaviour:
   uiScoring: {fileID: 1084006617}
   song:
     notes:
-    - mood: 1
+    - moods: 
       isComboNote: 0
       score: 2
       time: 1.5
-    - mood: 2
+    - moods: 
       isComboNote: 0
       score: 1
       time: 3.5
-    - mood: 0
+    - moods: 0100000003000000
       isComboNote: 0
       score: 3
       time: 5
-    - mood: 0
+    - moods: 01000000
       isComboNote: 0
       score: 3
       time: 7
-    - mood: 0
+    - moods: 02000000
       isComboNote: 0
       score: 3
       time: 9
-    - mood: 0
+    - moods: 
       isComboNote: 0
       score: 3
       time: 11
-    - mood: 0
+    - moods: 
       isComboNote: 0
       score: 3
       time: 13
-    - mood: 0
+    - moods: 
       isComboNote: 0
       score: 3
       time: 16
-    - mood: 0
+    - moods: 
       isComboNote: 0
       score: 3
       time: 19
-    - mood: 0
+    - moods: 
       isComboNote: 0
       score: 3
       time: 22
-    - mood: 0
+    - moods: 
       isComboNote: 0
       score: 3
       time: 26
-    - mood: 0
+    - moods: 
       isComboNote: 0
       score: 3
       time: 28
-    - mood: 0
+    - moods: 
       isComboNote: 0
       score: 3
       time: 31
-    - mood: 0
+    - moods: 
       isComboNote: 0
       score: 3
       time: 35
-    - mood: 0
+    - moods: 
       isComboNote: 0
       score: 3
       time: 39

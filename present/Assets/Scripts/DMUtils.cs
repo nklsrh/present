@@ -83,7 +83,7 @@ public class DMUtils
         UnityEngine.SceneManagement.SceneManager.LoadScene("artstyle");
     }
 
-    internal static string StringArray(string[] arrayString)
+    internal static string StringArray(object[] arrayString)
     {
         string final = "";
         for (int i = 0; i < arrayString.Length; i++)

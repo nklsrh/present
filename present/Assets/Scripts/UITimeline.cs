@@ -98,7 +98,7 @@ public class Note
         C = 3,
     }
 
-    public Mood mood;
+    public List<Mood> moods = new List<Mood>();
     public bool isComboNote = false;
     public int score;
 
