@@ -58,6 +58,11 @@ public class Menu_LevelSelect : MonoBehaviour {
             ,    Data.card.card_mood_62,
         };
 
+        for (int i = 0; i < selectedCards.Count; i++)
+        {
+            inventoryCards.Remove(selectedCards[i]);
+        }
+
         Refresh();
 
         gameObject.SetActive(true);
