@@ -15,6 +15,8 @@ public class UITimeline : MonoBehaviour {
 
     public void Setup (Song song)
     {
+        onMissedNote = null;
+
         tapPoints.Clear();
 
         var songNotes = song.notes.ToArray();
@@ -52,6 +54,11 @@ public class UITimeline : MonoBehaviour {
     internal void HideLatestNode()
     {
         tapPoints[0].gameObject.SetActive(false);
+    }
+
+    internal bool IsLevelComplete()
+    {
+        return tapPoints.Count == 0;
     }
 }
 

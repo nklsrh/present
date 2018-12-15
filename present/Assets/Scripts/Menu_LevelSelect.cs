@@ -17,16 +17,27 @@ public class Menu_LevelSelect : MonoBehaviour {
 
     private void Start()
     {
+        Refresh();
+
+        gameObject.SetActive(true);
+    }
+
+    internal void Refresh()
+    {
         DMUtils.BuildList<UILevelButton, DLevel>(OnBuildButton, Data.level.ToArray(), btnLevel.gameObject, btnLevel.transform.parent);
 
-        btnLevels.onClick.AddListener(() => 
+        btnLevels.onClick.RemoveAllListeners();
+        btnLevels.onClick.AddListener(() =>
         {
             animations.Play("menu_slide_levels");
         });
+        btnPlay.onClick.RemoveAllListeners();
         btnPlay.onClick.AddListener(() =>
         {
             StartLevel();
         });
+
+        animations.Play("menu_slide_levels");
     }
 
     private void OnBuildButton(UILevelButton levelBtn, DLevel level)

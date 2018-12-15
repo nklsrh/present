@@ -9,6 +9,7 @@ public class GameController : MonoBehaviour
     public UIHand uiHand;
     public UIScoring uiScoring;
 
+    public DLevel level;
     public Song song;
 
     public List<Card> hand;
@@ -28,16 +29,23 @@ public class GameController : MonoBehaviour
 
     bool gameStarted = false;
 
+    public Menu_Endgame menu_Endgame;
+    public GameObject menu_Game;
+
     public void Setup(DLevel level)
     {
+        this.level = level;
+
         SetupDeck();
 
         SetupHand();
 
         SetupScore(level.startA, level.startB, level.startC, level.scoreA, level.scoreB, level.scoreC);
 
-        uiTimeline.onMissedNote += OnMissedNote;
+        currentTime = 0;
+
         uiTimeline.Setup(song);
+        uiTimeline.onMissedNote += OnMissedNote;
 
         gameStarted = true;
     }
@@ -114,7 +122,13 @@ public class GameController : MonoBehaviour
 
             if (Input.GetKeyDown(KeyCode.D))
             {
-                DrawCards(1);
+                //DrawCards(1);
+                OnLevelFinished();
+            }
+
+            if (uiTimeline.IsLevelComplete())
+            {
+                OnLevelFinished();
             }
         }
     }
@@ -128,42 +142,42 @@ public class GameController : MonoBehaviour
     {
         hand.Remove(card);
 
+        var note = GetNote(currentTime);
+        if (note != null)
+        {
+            uiTimeline.HideLatestNode();
+        }
+
         if (card is MoodCard)
         {
             var c = card as MoodCard;
-
-            var note = GetNote(currentTime);
             if (note != null)
             {
-                if (note != null)
-                {
-                    ScoreMood(note, c);
-                }
-
-                uiTimeline.HideLatestNode();
+                ScoreMood(note, c);
             }
+            DrawCards(1);
         }
 
         if (card is ComboCard)
         {
             var c = card as ComboCard;
 
-            var note = GetNote(currentTime);
-            if (note != null)
-            {
-                Debug.Log("COMBO?");
-            }
+            Debug.Log("COMBO?");
+            DrawCards(1);
         }
 
         if (card is DrawCard)
         {
             var c = card as DrawCard;
 
-            DrawCards(c.cardsToDraw);
-        }
-        else
-        {
-            DrawCards(1);
+            if (note != null)
+            {
+                DrawCards(c.cardsToDraw);
+            }
+            else
+            {
+                DrawCards(1);
+            }
         }
 
         uiHand.Setup(hand);
@@ -203,5 +217,13 @@ public class GameController : MonoBehaviour
     List<MoodValue> GetMoodValues(Note note, Note.Mood mood)
     {
         return moodValues.FindAll(r => r.mood == Note.Mood.Blank || note.moods.Contains(r.mood));
+    }
+
+    public void OnLevelFinished()
+    {
+        menu_Endgame.Show();
+        menu_Game.SetActive(false);
+
+        gameStarted = false;
     }
 }
