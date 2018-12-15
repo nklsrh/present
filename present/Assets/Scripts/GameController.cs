@@ -26,25 +26,33 @@ public class GameController : MonoBehaviour
     public const float TAP_NODE_TIME_WINDOW = 0.5f;       // how much time before and after the exact note point do we allow the user to tap
     public const int PENALTY = 2;
 
-    void Start ()
-    {
-        SetupMoods();
+    bool gameStarted = false;
 
+    public void Setup(DLevel level)
+    {
         SetupDeck();
 
         SetupHand();
 
-        SetupScore();
+        SetupScore(level.startA, level.startB, level.startC, level.scoreA, level.scoreB, level.scoreC);
 
         uiTimeline.onMissedNote += OnMissedNote;
         uiTimeline.Setup(song);
+
+        gameStarted = true;
     }
 
-    private void SetupScore()
+    private void SetupScore(int startA, int startB, int startC, int a, int b, int c)
     {
-        uiScoring.SetScore(Note.Mood.A, 0, 100);
-        uiScoring.SetScore(Note.Mood.B, 0, 100);
-        uiScoring.SetScore(Note.Mood.C, 0, 100);
+        moodValues = new List<MoodValue>();
+        moodValues.Add(new MoodValue() { mood = Note.Mood.A, value = startA });
+        moodValues.Add(new MoodValue() { mood = Note.Mood.B, value = startB });
+        moodValues.Add(new MoodValue() { mood = Note.Mood.C, value = startC });
+        moodValues.Add(new MoodValue() { mood = Note.Mood.Blank, value = 0 });
+
+        uiScoring.SetScore(Note.Mood.A, startA, a);
+        uiScoring.SetScore(Note.Mood.B, startB, b);
+        uiScoring.SetScore(Note.Mood.C, startC, c);
     }
 
     private void SetupDeck()
@@ -96,24 +104,18 @@ public class GameController : MonoBehaviour
         uiHand.Setup(hand);
     }
 
-    private void SetupMoods()
-    {
-        moodValues = new List<MoodValue>();
-        moodValues.Add(new MoodValue() { mood = Note.Mood.A, value = 0 });
-        moodValues.Add(new MoodValue() { mood = Note.Mood.B, value = 0 });
-        moodValues.Add(new MoodValue() { mood = Note.Mood.C, value = 0 });
-        moodValues.Add(new MoodValue() { mood = Note.Mood.Blank, value = 0 });
-    }
-
     private void Update()
     {
-        currentTime += Time.deltaTime;
-
-        uiTimeline.UpdateLogic(currentTime);
-
-        if (Input.GetKeyDown(KeyCode.D))
+        if (gameStarted)
         {
-            DrawCards(1);
+            currentTime += Time.deltaTime;
+
+            uiTimeline.UpdateLogic(currentTime);
+
+            if (Input.GetKeyDown(KeyCode.D))
+            {
+                DrawCards(1);
+            }
         }
     }
 
@@ -180,8 +182,6 @@ public class GameController : MonoBehaviour
 
     private void ScoreMood(Note note, MoodCard card)
     {
-        //var moodMatches = c.moodChanges.FindAll(r => note.moods.Contains(r.mood));
-
         for (int i = 0; i < card.moodChanges.Count; i++)
         {
             var moodChange = card.moodChanges[i];
@@ -191,7 +191,6 @@ public class GameController : MonoBehaviour
 
             var values = moodValues.FindAll(r => r.mood == mood);
 
-            //Debug.Log("Matches: " + values.Count);
             for (int j = 0; j < values.Count; j++)
             {
                 //Debug.Log("Matches: " + values[j].mood + " : " + values[j].value);

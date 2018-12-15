@@ -2,15 +2,14 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public class DLevel  {
-
-	// Use this for initialization
-	void Start () {
-		
-	}
-	
-	// Update is called once per frame
-	void Update () {
-		
-	}
+public class DLevel
+{
+    public string id;
+    public int startA;
+    public int startB;
+    public int startC;
+    public int scoreA;
+    public int scoreB;
+    public int scoreC;
+    public string[] moodChanges;
 }
