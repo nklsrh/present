@@ -11,6 +11,13 @@ public class UICard : MonoBehaviour
     public Button button;
 
     private Card card;
+    private DCard dcard;
+
+    internal void SetCard(DCard card)
+    {
+        dcard = card;
+        SetCard(card.GetCard());
+    }
 
     internal void SetCard(Card card)
     {
@@ -50,6 +57,15 @@ public class UICard : MonoBehaviour
         {
             button.onClick.RemoveAllListeners();
             button.onClick.AddListener(()=> { onPlayCard.Invoke(card); });
+        }
+    }
+
+    internal void SetAction(Action<DCard> onPlayCard)
+    {
+        if (onPlayCard != null && button != null)
+        {
+            button.onClick.RemoveAllListeners();
+            button.onClick.AddListener(() => { onPlayCard.Invoke(dcard); });
         }
     }
 }

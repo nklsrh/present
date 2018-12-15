@@ -13,10 +13,25 @@ public class Menu_LevelSelect : MonoBehaviour {
     public Button btnPlay;
     public Animation animations;
 
+    public UICard cardDeck;
+    public UICard cardInventory;
+
     DLevel selectedLevel;
+    List<DCard> selectedCards = new List<DCard>();
+    List<DCard> inventoryCards = new List<DCard>();
 
     private void Start()
     {
+        inventoryCards = new List<DCard>();
+        inventoryCards.AddRange(Data.card.ToArray());
+
+        selectedCards = new List<DCard>()
+        {
+            Data.card.card_combo_1,
+            Data.card.card_mood_1,
+            Data.card.card_draw_1,
+        };
+
         Refresh();
 
         gameObject.SetActive(true);
@@ -38,6 +53,8 @@ public class Menu_LevelSelect : MonoBehaviour {
         });
 
         animations.Play("menu_slide_levels");
+
+        BuildDeck();
     }
 
     private void OnBuildButton(UILevelButton levelBtn, DLevel level)
@@ -54,6 +71,45 @@ public class Menu_LevelSelect : MonoBehaviour {
         this.gameObject.SetActive(false);
         menu_Game.gameObject.SetActive(true);
 
-        gameController.Setup(selectedLevel);
+        List<Card> cards = new List<Card>();
+        for (int i = 0; i < selectedCards.Count; i++)
+        {
+            cards.Add(selectedCards[i].GetCard());
+        }
+        gameController.Setup(selectedLevel, cards);
+    }
+
+    public void BuildDeck()
+    {
+        DMUtils.BuildList<UICard, DCard>(OnBuildCardInventory, inventoryCards.ToArray(), cardInventory.gameObject, cardInventory.transform.parent);
+        DMUtils.BuildList<UICard, DCard>(OnBuildCardDeck, selectedCards.ToArray(), cardDeck.gameObject, cardDeck.transform.parent);
+    }
+
+    private void OnBuildCardInventory(UICard arg1, DCard arg2)
+    {
+        arg1.SetCard(arg2);
+        arg1.SetAction(OnSelectCardInventory);
+    }
+
+    private void OnBuildCardDeck(UICard arg1, DCard arg2)
+    {
+        arg1.SetCard(arg2);
+        arg1.SetAction(OnSelectCardDeck);
+    }
+
+    private void OnSelectCardInventory(DCard obj)
+    {
+        selectedCards.Add(obj);
+        inventoryCards.Remove(obj);
+
+        BuildDeck();
+    }
+
+    private void OnSelectCardDeck(DCard obj)
+    {
+        inventoryCards.Add(obj);
+        selectedCards.Remove(obj);
+
+        BuildDeck();
     }
 }
