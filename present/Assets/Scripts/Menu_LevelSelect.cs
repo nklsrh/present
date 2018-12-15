@@ -69,7 +69,7 @@ public class Menu_LevelSelect : MonoBehaviour {
             // limit number of selected cards to max size specified by level
             for (int i = selectedCards.Count - 1; i >= 0; i--)
             {
-                if (i > selectedLevel.deckSize)
+                if (i > selectedLevel.deckSize - 1)
                 {
                     var card = selectedCards[i];
                     selectedCards.Remove(card);
@@ -91,6 +91,7 @@ public class Menu_LevelSelect : MonoBehaviour {
         {
             cards.Add(selectedCards[i].GetCard());
         }
+        
         gameController.Setup(selectedLevel, cards);
     }
 
