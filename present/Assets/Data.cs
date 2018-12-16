@@ -33,7 +33,7 @@ namespace DataTypes{
 		}
 	}
 	public class SheetStartingDeck: IEnumerable{
-		public System.DateTime updated = new System.DateTime(2018,12,15,11,48,58);
+		public System.DateTime updated = new System.DateTime(2018,12,16,5,21,37);
 		public readonly string[] labels = new string[]{"string id"};
 		private StartingDeck[] _rows = new StartingDeck[30];
 		public void Init() {
@@ -183,7 +183,7 @@ namespace DataTypes{
 
 		public Card(){}
 
-		public Card(string id, int index, string name, string description, DCard.eCardType cardType, int cardsToDraw, string comboMood, float comboMultiplier, string[] moodChanges){
+		public Card(string id, int index, string name, string description, DCard.eCardType cardType, int cardsToDraw, string comboMood, int comboMultiplier, string[] moodChanges){
 			this.id = id;
 			this.index = index;
 			this.name = name;
@@ -196,75 +196,75 @@ namespace DataTypes{
 		}
 	}
 	public class SheetCard: IEnumerable{
-		public System.DateTime updated = new System.DateTime(2018,12,15,11,48,58);
-		public readonly string[] labels = new string[]{"id","index","name","description","enum cardType","int cardsToDraw","string comboMood","float comboMultiplier","string[] moodChanges"};
+		public System.DateTime updated = new System.DateTime(2018,12,16,5,21,37);
+		public readonly string[] labels = new string[]{"id","index","name","description","enum cardType","int cardsToDraw","string comboMood","int comboMultiplier","string[] moodChanges"};
 		private Card[] _rows = new Card[64];
 		public void Init() {
 			_rows = new Card[]{
-					new Card("card_mood_1",1,"","",DCard.eCardType.mood,0,"",0f,new string[]{"A","0","B","0","C","1"}),
-					new Card("card_mood_2",2,"","",DCard.eCardType.mood,0,"",0f,new string[]{"A","0","B","0","C","2"}),
-					new Card("card_mood_3",3,"","",DCard.eCardType.mood,0,"",0f,new string[]{"A","0","B","0","C","3"}),
-					new Card("card_mood_4",4,"","",DCard.eCardType.mood,0,"",0f,new string[]{"A","0","B","1","C","0"}),
-					new Card("card_mood_5",5,"","",DCard.eCardType.mood,0,"",0f,new string[]{"A","0","B","1","C","1"}),
-					new Card("card_mood_6",6,"","",DCard.eCardType.mood,0,"",0f,new string[]{"A","0","B","1","C","2"}),
-					new Card("card_mood_7",7,"","",DCard.eCardType.mood,0,"",0f,new string[]{"A","0","B","1","C","3"}),
-					new Card("card_mood_8",8,"","",DCard.eCardType.mood,0,"",0f,new string[]{"A","0","B","2","C","0"}),
-					new Card("card_mood_9",9,"","",DCard.eCardType.mood,0,"",0f,new string[]{"A","0","B","2","C","1"}),
-					new Card("card_mood_10",10,"","",DCard.eCardType.mood,0,"",0f,new string[]{"A","0","B","2","C","2"}),
-					new Card("card_mood_11",11,"","",DCard.eCardType.mood,0,"",0f,new string[]{"A","0","B","2","C","3"}),
-					new Card("card_mood_12",12,"","",DCard.eCardType.mood,0,"",0f,new string[]{"A","0","B","3","C","0"}),
-					new Card("card_mood_13",13,"","",DCard.eCardType.mood,0,"",0f,new string[]{"A","0","B","3","C","1"}),
-					new Card("card_mood_14",14,"","",DCard.eCardType.mood,0,"",0f,new string[]{"A","0","B","3","C","2"}),
-					new Card("card_mood_15",15,"","",DCard.eCardType.mood,0,"",0f,new string[]{"A","0","B","3","C","3"}),
-					new Card("card_mood_16",16,"","",DCard.eCardType.mood,0,"",0f,new string[]{"A","1","B","0","C","0"}),
-					new Card("card_mood_17",17,"","",DCard.eCardType.mood,0,"",0f,new string[]{"A","1","B","0","C","1"}),
-					new Card("card_mood_18",18,"","",DCard.eCardType.mood,0,"",0f,new string[]{"A","1","B","0","C","2"}),
-					new Card("card_mood_19",19,"","",DCard.eCardType.mood,0,"",0f,new string[]{"A","1","B","0","C","3"}),
-					new Card("card_mood_20",20,"","",DCard.eCardType.mood,0,"",0f,new string[]{"A","1","B","1","C","0"}),
-					new Card("card_mood_21",21,"","",DCard.eCardType.mood,0,"",0f,new string[]{"A","1","B","1","C","1"}),
-					new Card("card_mood_22",22,"","",DCard.eCardType.mood,0,"",0f,new string[]{"A","1","B","1","C","2"}),
-					new Card("card_mood_23",23,"","",DCard.eCardType.mood,0,"",0f,new string[]{"A","1","B","1","C","3"}),
-					new Card("card_mood_24",24,"","",DCard.eCardType.mood,0,"",0f,new string[]{"A","1","B","2","C","0"}),
-					new Card("card_mood_25",25,"","",DCard.eCardType.mood,0,"",0f,new string[]{"A","1","B","2","C","1"}),
-					new Card("card_mood_26",26,"","",DCard.eCardType.mood,0,"",0f,new string[]{"A","1","B","2","C","2"}),
-					new Card("card_mood_27",27,"","",DCard.eCardType.mood,0,"",0f,new string[]{"A","1","B","2","C","3"}),
-					new Card("card_mood_28",28,"","",DCard.eCardType.mood,0,"",0f,new string[]{"A","1","B","3","C","0"}),
-					new Card("card_mood_29",29,"","",DCard.eCardType.mood,0,"",0f,new string[]{"A","1","B","3","C","1"}),
-					new Card("card_mood_30",30,"","",DCard.eCardType.mood,0,"",0f,new string[]{"A","1","B","3","C","2"}),
-					new Card("card_mood_32",32,"","",DCard.eCardType.mood,0,"",0f,new string[]{"A","2","B","0","C","0"}),
-					new Card("card_mood_33",33,"","",DCard.eCardType.mood,0,"",0f,new string[]{"A","2","B","0","C","1"}),
-					new Card("card_mood_34",34,"","",DCard.eCardType.mood,0,"",0f,new string[]{"A","2","B","0","C","2"}),
-					new Card("card_mood_35",35,"","",DCard.eCardType.mood,0,"",0f,new string[]{"A","2","B","0","C","3"}),
-					new Card("card_mood_36",36,"","",DCard.eCardType.mood,0,"",0f,new string[]{"A","2","B","1","C","0"}),
-					new Card("card_mood_37",37,"","",DCard.eCardType.mood,0,"",0f,new string[]{"A","2","B","1","C","1"}),
-					new Card("card_mood_38",38,"","",DCard.eCardType.mood,0,"",0f,new string[]{"A","2","B","1","C","2"}),
-					new Card("card_mood_39",39,"","",DCard.eCardType.mood,0,"",0f,new string[]{"A","2","B","1","C","3"}),
-					new Card("card_mood_40",40,"","",DCard.eCardType.mood,0,"",0f,new string[]{"A","2","B","2","C","0"}),
-					new Card("card_mood_41",41,"","",DCard.eCardType.mood,0,"",0f,new string[]{"A","2","B","2","C","1"}),
-					new Card("card_mood_42",42,"","",DCard.eCardType.mood,0,"",0f,new string[]{"A","2","B","2","C","2"}),
-					new Card("card_mood_44",44,"","",DCard.eCardType.mood,0,"",0f,new string[]{"A","2","B","3","C","0"}),
-					new Card("card_mood_45",45,"","",DCard.eCardType.mood,0,"",0f,new string[]{"A","2","B","3","C","1"}),
-					new Card("card_mood_48",48,"","",DCard.eCardType.mood,0,"",0f,new string[]{"A","3","B","0","C","0"}),
-					new Card("card_mood_49",49,"","",DCard.eCardType.mood,0,"",0f,new string[]{"A","3","B","0","C","1"}),
-					new Card("card_mood_50",50,"","",DCard.eCardType.mood,0,"",0f,new string[]{"A","3","B","0","C","2"}),
-					new Card("card_mood_51",51,"","",DCard.eCardType.mood,0,"",0f,new string[]{"A","3","B","0","C","3"}),
-					new Card("card_mood_52",52,"","",DCard.eCardType.mood,0,"",0f,new string[]{"A","3","B","1","C","0"}),
-					new Card("card_mood_53",53,"","",DCard.eCardType.mood,0,"",0f,new string[]{"A","3","B","1","C","1"}),
-					new Card("card_mood_54",54,"","",DCard.eCardType.mood,0,"",0f,new string[]{"A","3","B","1","C","2"}),
-					new Card("card_mood_56",56,"","",DCard.eCardType.mood,0,"",0f,new string[]{"A","3","B","2","C","0"}),
-					new Card("card_mood_57",57,"","",DCard.eCardType.mood,0,"",0f,new string[]{"A","3","B","2","C","1"}),
-					new Card("card_mood_60",60,"","",DCard.eCardType.mood,0,"",0f,new string[]{"A","3","B","3","C","0"}),
-					new Card("card_combo_1",64,"","",DCard.eCardType.combo,0,"A",2f,new string[]{}),
-					new Card("card_combo_2",65,"","",DCard.eCardType.combo,0,"A",3f,new string[]{}),
-					new Card("card_combo_3",66,"","",DCard.eCardType.combo,0,"A",5f,new string[]{}),
-					new Card("card_combo_4",67,"","",DCard.eCardType.combo,0,"B",2f,new string[]{}),
-					new Card("card_combo_5",68,"","",DCard.eCardType.combo,0,"B",3f,new string[]{}),
-					new Card("card_combo_6",69,"","",DCard.eCardType.combo,0,"B",5f,new string[]{}),
-					new Card("card_combo_7",70,"","",DCard.eCardType.combo,0,"C",2f,new string[]{}),
-					new Card("card_combo_8",71,"","",DCard.eCardType.combo,0,"C",3f,new string[]{}),
-					new Card("card_combo_9",72,"","",DCard.eCardType.combo,0,"C",5f,new string[]{}),
-					new Card("card_draw_1",73,"","",DCard.eCardType.draw,2,"",0f,new string[]{}),
-					new Card("card_draw_2",74,"","",DCard.eCardType.draw,3,"",0f,new string[]{})
+					new Card("card_mood_1",1,"","",DCard.eCardType.mood,0,"",0,new string[]{"A","0","B","0","C","1"}),
+					new Card("card_mood_2",2,"","",DCard.eCardType.mood,0,"",0,new string[]{"A","0","B","0","C","2"}),
+					new Card("card_mood_3",3,"","",DCard.eCardType.mood,0,"",0,new string[]{"A","0","B","0","C","3"}),
+					new Card("card_mood_4",4,"","",DCard.eCardType.mood,0,"",0,new string[]{"A","0","B","1","C","0"}),
+					new Card("card_mood_5",5,"","",DCard.eCardType.mood,0,"",0,new string[]{"A","0","B","1","C","1"}),
+					new Card("card_mood_6",6,"","",DCard.eCardType.mood,0,"",0,new string[]{"A","0","B","1","C","2"}),
+					new Card("card_mood_7",7,"","",DCard.eCardType.mood,0,"",0,new string[]{"A","0","B","1","C","3"}),
+					new Card("card_mood_8",8,"","",DCard.eCardType.mood,0,"",0,new string[]{"A","0","B","2","C","0"}),
+					new Card("card_mood_9",9,"","",DCard.eCardType.mood,0,"",0,new string[]{"A","0","B","2","C","1"}),
+					new Card("card_mood_10",10,"","",DCard.eCardType.mood,0,"",0,new string[]{"A","0","B","2","C","2"}),
+					new Card("card_mood_11",11,"","",DCard.eCardType.mood,0,"",0,new string[]{"A","0","B","2","C","3"}),
+					new Card("card_mood_12",12,"","",DCard.eCardType.mood,0,"",0,new string[]{"A","0","B","3","C","0"}),
+					new Card("card_mood_13",13,"","",DCard.eCardType.mood,0,"",0,new string[]{"A","0","B","3","C","1"}),
+					new Card("card_mood_14",14,"","",DCard.eCardType.mood,0,"",0,new string[]{"A","0","B","3","C","2"}),
+					new Card("card_mood_15",15,"","",DCard.eCardType.mood,0,"",0,new string[]{"A","0","B","3","C","3"}),
+					new Card("card_mood_16",16,"","",DCard.eCardType.mood,0,"",0,new string[]{"A","1","B","0","C","0"}),
+					new Card("card_mood_17",17,"","",DCard.eCardType.mood,0,"",0,new string[]{"A","1","B","0","C","1"}),
+					new Card("card_mood_18",18,"","",DCard.eCardType.mood,0,"",0,new string[]{"A","1","B","0","C","2"}),
+					new Card("card_mood_19",19,"","",DCard.eCardType.mood,0,"",0,new string[]{"A","1","B","0","C","3"}),
+					new Card("card_mood_20",20,"","",DCard.eCardType.mood,0,"",0,new string[]{"A","1","B","1","C","0"}),
+					new Card("card_mood_21",21,"","",DCard.eCardType.mood,0,"",0,new string[]{"A","1","B","1","C","1"}),
+					new Card("card_mood_22",22,"","",DCard.eCardType.mood,0,"",0,new string[]{"A","1","B","1","C","2"}),
+					new Card("card_mood_23",23,"","",DCard.eCardType.mood,0,"",0,new string[]{"A","1","B","1","C","3"}),
+					new Card("card_mood_24",24,"","",DCard.eCardType.mood,0,"",0,new string[]{"A","1","B","2","C","0"}),
+					new Card("card_mood_25",25,"","",DCard.eCardType.mood,0,"",0,new string[]{"A","1","B","2","C","1"}),
+					new Card("card_mood_26",26,"","",DCard.eCardType.mood,0,"",0,new string[]{"A","1","B","2","C","2"}),
+					new Card("card_mood_27",27,"","",DCard.eCardType.mood,0,"",0,new string[]{"A","1","B","2","C","3"}),
+					new Card("card_mood_28",28,"","",DCard.eCardType.mood,0,"",0,new string[]{"A","1","B","3","C","0"}),
+					new Card("card_mood_29",29,"","",DCard.eCardType.mood,0,"",0,new string[]{"A","1","B","3","C","1"}),
+					new Card("card_mood_30",30,"","",DCard.eCardType.mood,0,"",0,new string[]{"A","1","B","3","C","2"}),
+					new Card("card_mood_32",32,"","",DCard.eCardType.mood,0,"",0,new string[]{"A","2","B","0","C","0"}),
+					new Card("card_mood_33",33,"","",DCard.eCardType.mood,0,"",0,new string[]{"A","2","B","0","C","1"}),
+					new Card("card_mood_34",34,"","",DCard.eCardType.mood,0,"",0,new string[]{"A","2","B","0","C","2"}),
+					new Card("card_mood_35",35,"","",DCard.eCardType.mood,0,"",0,new string[]{"A","2","B","0","C","3"}),
+					new Card("card_mood_36",36,"","",DCard.eCardType.mood,0,"",0,new string[]{"A","2","B","1","C","0"}),
+					new Card("card_mood_37",37,"","",DCard.eCardType.mood,0,"",0,new string[]{"A","2","B","1","C","1"}),
+					new Card("card_mood_38",38,"","",DCard.eCardType.mood,0,"",0,new string[]{"A","2","B","1","C","2"}),
+					new Card("card_mood_39",39,"","",DCard.eCardType.mood,0,"",0,new string[]{"A","2","B","1","C","3"}),
+					new Card("card_mood_40",40,"","",DCard.eCardType.mood,0,"",0,new string[]{"A","2","B","2","C","0"}),
+					new Card("card_mood_41",41,"","",DCard.eCardType.mood,0,"",0,new string[]{"A","2","B","2","C","1"}),
+					new Card("card_mood_42",42,"","",DCard.eCardType.mood,0,"",0,new string[]{"A","2","B","2","C","2"}),
+					new Card("card_mood_44",44,"","",DCard.eCardType.mood,0,"",0,new string[]{"A","2","B","3","C","0"}),
+					new Card("card_mood_45",45,"","",DCard.eCardType.mood,0,"",0,new string[]{"A","2","B","3","C","1"}),
+					new Card("card_mood_48",48,"","",DCard.eCardType.mood,0,"",0,new string[]{"A","3","B","0","C","0"}),
+					new Card("card_mood_49",49,"","",DCard.eCardType.mood,0,"",0,new string[]{"A","3","B","0","C","1"}),
+					new Card("card_mood_50",50,"","",DCard.eCardType.mood,0,"",0,new string[]{"A","3","B","0","C","2"}),
+					new Card("card_mood_51",51,"","",DCard.eCardType.mood,0,"",0,new string[]{"A","3","B","0","C","3"}),
+					new Card("card_mood_52",52,"","",DCard.eCardType.mood,0,"",0,new string[]{"A","3","B","1","C","0"}),
+					new Card("card_mood_53",53,"","",DCard.eCardType.mood,0,"",0,new string[]{"A","3","B","1","C","1"}),
+					new Card("card_mood_54",54,"","",DCard.eCardType.mood,0,"",0,new string[]{"A","3","B","1","C","2"}),
+					new Card("card_mood_56",56,"","",DCard.eCardType.mood,0,"",0,new string[]{"A","3","B","2","C","0"}),
+					new Card("card_mood_57",57,"","",DCard.eCardType.mood,0,"",0,new string[]{"A","3","B","2","C","1"}),
+					new Card("card_mood_60",60,"","",DCard.eCardType.mood,0,"",0,new string[]{"A","3","B","3","C","0"}),
+					new Card("card_combo_1",64,"","",DCard.eCardType.combo,0,"A",2,new string[]{}),
+					new Card("card_combo_2",65,"","",DCard.eCardType.combo,0,"A",3,new string[]{}),
+					new Card("card_combo_3",66,"","",DCard.eCardType.combo,0,"A",5,new string[]{}),
+					new Card("card_combo_4",67,"","",DCard.eCardType.combo,0,"B",2,new string[]{}),
+					new Card("card_combo_5",68,"","",DCard.eCardType.combo,0,"B",3,new string[]{}),
+					new Card("card_combo_6",69,"","",DCard.eCardType.combo,0,"B",5,new string[]{}),
+					new Card("card_combo_7",70,"","",DCard.eCardType.combo,0,"C",2,new string[]{}),
+					new Card("card_combo_8",71,"","",DCard.eCardType.combo,0,"C",3,new string[]{}),
+					new Card("card_combo_9",72,"","",DCard.eCardType.combo,0,"C",5,new string[]{}),
+					new Card("card_draw_1",73,"","",DCard.eCardType.draw,2,"",0,new string[]{}),
+					new Card("card_draw_2",74,"","",DCard.eCardType.draw,3,"",0,new string[]{})
 				};
 		}
 			
@@ -427,7 +427,7 @@ namespace DataTypes{
 		}
 	}
 	public class SheetLevel: IEnumerable{
-		public System.DateTime updated = new System.DateTime(2018,12,15,11,48,58);
+		public System.DateTime updated = new System.DateTime(2018,12,16,5,21,37);
 		public readonly string[] labels = new string[]{"id","int startA","int startB","int startC","int scoreA","int scoreB","int scoreC","int deckSize","string[] moodChanges"};
 		private Level[] _rows = new Level[1];
 		public void Init() {
@@ -527,12 +527,12 @@ namespace DataTypes{
 		}
 	}
 	public class SheetTimings: IEnumerable{
-		public System.DateTime updated = new System.DateTime(2018,12,15,11,48,58);
+		public System.DateTime updated = new System.DateTime(2018,12,16,5,21,37);
 		public readonly string[] labels = new string[]{"id","string[] moodChanges"};
 		private Timings[] _rows = new Timings[1];
 		public void Init() {
 			_rows = new Timings[]{
-					new Timings("test_level",new string[]{"2","3","2","2","3","2_COMBO","2","2","4","2","3","2","2","2","1","1","2","2","3","1","1","1","2","1"})
+					new Timings("test_level",new string[]{"5","3","2","2","3","2_COMBO","2","2","4","2","3","2","2","2","1.5","1.5","2","2","3","1.5","1.5","1.5","2","1.5"})
 				};
 		}
 			

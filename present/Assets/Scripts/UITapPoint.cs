@@ -12,6 +12,9 @@ public class UITapPoint : MonoBehaviour
     private Note myNote;
     private RectTransform rect;
 
+    public Transform holder;
+    public GameObject MoodColor;
+
     public Note Note
     {
         get
@@ -27,9 +30,12 @@ public class UITapPoint : MonoBehaviour
         List<string> lis = new List<string>();
         foreach (var item in note.moodScores)
         {
+            
             lis.Add(item.Key.ToString() + ": " + item.Value.ToString());
+            GameObject a = Instantiate<GameObject>(MoodColor, holder.transform);
+            a.GetComponent<MoodColorScript>().SetColor(item.Key.ToString(), item.Value);
         }
-        txt.text = DMUtils.StringArray(lis.ToArray());
+        //txt.text = DMUtils.StringArray(lis.ToArray());
 
         SetTime(currentTime);
     }
