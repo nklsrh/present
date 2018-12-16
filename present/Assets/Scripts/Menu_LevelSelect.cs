@@ -82,6 +82,44 @@ public class Menu_LevelSelect : MonoBehaviour {
             BuildDeck();
         });
 
+        btnMoodB.onClick.RemoveAllListeners();
+        btnMoodB.onClick.AddListener(() =>
+        {
+            currentCategory = eCardType.moodB;
+            BuildDeck();
+        });
+
+
+        btnMoodC.onClick.RemoveAllListeners();
+        btnMoodC.onClick.AddListener(() =>
+        {
+            currentCategory = eCardType.moodC;
+            BuildDeck();
+        });
+
+        btnCombo.onClick.RemoveAllListeners();
+        btnCombo.onClick.AddListener(() =>
+        {
+            currentCategory = eCardType.Combo;
+            BuildDeck();
+        });
+
+        btnAction.onClick.RemoveAllListeners();
+        btnAction.onClick.AddListener(() =>
+        {
+            currentCategory = eCardType.Action;
+            BuildDeck();
+        });
+
+        btnAll.onClick.RemoveAllListeners();
+        btnAll.onClick.AddListener(() =>
+        {
+            currentCategory = eCardType.All;
+            BuildDeck();
+        });
+
+
+
         animations.Play("menu_slide_levels");
 
 
@@ -178,7 +216,7 @@ public class Menu_LevelSelect : MonoBehaviour {
         List<DCard> actionList = new List<DCard>();
         foreach (var i in inventoryCards)
         {
-            if (i.cardType == DCard.eCardType.combo)
+            if (i.cardType == DCard.eCardType.draw)
             {
                 actionList.Add(i);
             }
