@@ -73,6 +73,16 @@ public class ComboCard : Card
 public class MoodCard : Card
 {
     public List<MoodValue> moodChanges;
+
+    public int GetMoodValue(Note.Mood mood)
+    {
+        var foundIndex = moodChanges.FindIndex(r => r.mood == mood);
+        if (foundIndex >= 0)
+        {
+            return moodChanges[foundIndex].value;
+        }
+        return -1;
+    }
 }
 
 [System.Serializable]
