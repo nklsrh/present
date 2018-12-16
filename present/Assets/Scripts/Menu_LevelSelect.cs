@@ -98,8 +98,21 @@ public class Menu_LevelSelect : MonoBehaviour {
 
     public void BuildDeck()
     {
+
+        List<DCard> comboList = new List<DCard>();
+        foreach(var i in inventoryCards)
+        {
+            if (i.cardType == DCard.eCardType.combo)
+            {
+                inventoryCards.Remove(i);
+                comboList.Add(i);
+            }
+        }
+
+
         DMUtils.BuildList<UICard, DCard>(OnBuildCardInventory, inventoryCards.ToArray(), cardInventory.gameObject, cardInventory.transform.parent);
         DMUtils.BuildList<UICard, DCard>(OnBuildCardDeck, selectedCards.ToArray(), cardDeck.gameObject, cardDeck.transform.parent);
+       // DMUtils.BuildList<UICard, DCard>(OnBuildCardDeck, comboList.ToArray(), cardDeck.gameObject, cardDeck.transform.parent);
     }
 
     private void OnBuildCardInventory(UICard arg1, DCard arg2)
