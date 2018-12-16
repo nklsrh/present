@@ -11,6 +11,14 @@ public class Menu_LevelSelect : MonoBehaviour {
     public GameController gameController;
     public Button btnLevels;
     public Button btnPlay;
+    public Button btnAll;
+    public Button btnMoodA;
+    public Button btnMoodB;
+    public Button btnMoodC;
+    public Button btnCombo;
+    public Button btnAction;
+
+
     public Animation animations;
 
     public UICard cardDeck;
@@ -20,6 +28,18 @@ public class Menu_LevelSelect : MonoBehaviour {
     List<DCard> selectedCards = new List<DCard>();
     List<DCard> inventoryCards = new List<DCard>();
 
+    public enum eCardType
+    {
+        All,
+        moodA,
+        moodB,
+        moodC,
+        Combo,
+        Action
+    }
+
+
+    public eCardType currentCategory = eCardType.All;
 
     private void Start()
     {
@@ -53,6 +73,13 @@ public class Menu_LevelSelect : MonoBehaviour {
         btnPlay.onClick.AddListener(() =>
         {
             StartLevel();
+        });
+
+        btnMoodA.onClick.RemoveAllListeners();
+        btnMoodA.onClick.AddListener(() =>
+        {
+            currentCategory = eCardType.moodA;
+            BuildDeck();
         });
 
         animations.Play("menu_slide_levels");
@@ -98,19 +125,97 @@ public class Menu_LevelSelect : MonoBehaviour {
 
     public void BuildDeck()
     {
+        
+
+        List<DCard> AMoodList = new List<DCard>();
+        foreach (var i in inventoryCards)
+        {
+            if (i.cardType == DCard.eCardType.mood)
+            {
+                var card = i.GetCard() as MoodCard;
+                if (card.GetMoodValue(Note.Mood.A) > 0)
+                {
+                    AMoodList.Add(i);
+                }
+            }
+        }
+
+        List<DCard> BMoodList = new List<DCard>();
+        foreach (var i in inventoryCards)
+        {
+            if (i.cardType == DCard.eCardType.mood)
+            {
+                var card = i.GetCard() as MoodCard;
+                if (card.GetMoodValue(Note.Mood.B) > 0)
+                {
+                    BMoodList.Add(i);
+                }
+            }
+        }
+
+        List<DCard> CMoodList = new List<DCard>();
+        foreach (var i in inventoryCards)
+        {
+            if (i.cardType == DCard.eCardType.mood)
+            {
+                var card = i.GetCard() as MoodCard;
+                if (card.GetMoodValue(Note.Mood.C) > 0)
+                {
+                    CMoodList.Add(i);
+                }
+            }
+        }
 
         List<DCard> comboList = new List<DCard>();
-        foreach(var i in inventoryCards)
+        foreach (var i in inventoryCards)
         {
             if (i.cardType == DCard.eCardType.combo)
             {
-                inventoryCards.Remove(i);
                 comboList.Add(i);
             }
         }
 
+        List<DCard> actionList = new List<DCard>();
+        foreach (var i in inventoryCards)
+        {
+            if (i.cardType == DCard.eCardType.combo)
+            {
+                actionList.Add(i);
+            }
+        }
 
-        DMUtils.BuildList<UICard, DCard>(OnBuildCardInventory, inventoryCards.ToArray(), cardInventory.gameObject, cardInventory.transform.parent);
+
+        List<DCard> chosenInventoryList = inventoryCards;
+        if (currentCategory == eCardType.moodA)
+        {
+           chosenInventoryList = AMoodList;
+        }
+        else if (currentCategory == eCardType.moodB)
+        {
+            chosenInventoryList = BMoodList;
+        }
+        else if (currentCategory == eCardType.moodC)
+        {
+            chosenInventoryList = CMoodList;
+        }
+        else if (currentCategory == eCardType.Combo)
+        {
+            chosenInventoryList = comboList;
+        }
+        else if (currentCategory == eCardType.Action)
+        {
+            chosenInventoryList = actionList;
+        }
+        else if (currentCategory == eCardType.All)
+        {
+            chosenInventoryList = inventoryCards;
+        }
+
+
+        DMUtils.BuildList<UICard, DCard>(OnBuildCardInventory, chosenInventoryList.ToArray(), cardInventory.gameObject, cardInventory.transform.parent);
+
+
+        //DMUtils.BuildList<UICard, DCard>(OnBuildCardInventory, inventoryCards.ToArray(), cardInventory.gameObject, cardInventory.transform.parent);
         DMUtils.BuildList<UICard, DCard>(OnBuildCardDeck, selectedCards.ToArray(), cardDeck.gameObject, cardDeck.transform.parent);
        // DMUtils.BuildList<UICard, DCard>(OnBuildCardDeck, comboList.ToArray(), cardDeck.gameObject, cardDeck.transform.parent);
     }
