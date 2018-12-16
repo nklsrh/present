@@ -15,6 +15,8 @@ public class UITapPoint : MonoBehaviour
     public Transform holder;
     public GameObject MoodColor;
 
+    public Sprite comboLink;
+
     public Note Note
     {
         get
