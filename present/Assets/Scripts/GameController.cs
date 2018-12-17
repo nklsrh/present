@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Collections;
 using System.Collections.Generic;
+using System.Linq;
 using UnityEngine;
 
 public class GameController : MonoBehaviour
@@ -31,6 +32,10 @@ public class GameController : MonoBehaviour
 
     public Menu_Endgame menu_Endgame;
     public GameObject menu_Game;
+
+    public Note comboStartNote;
+    public int comboScore;
+    public Note.Mood comboMood;
 
     public void Setup(DLevel level, List<Card> deckCards)
     {
@@ -166,6 +171,7 @@ public class GameController : MonoBehaviour
             {
                 ScoreMood(note, c);
             }
+            BreakCombo();
             DrawCards(1);
         }
 
@@ -176,8 +182,13 @@ public class GameController : MonoBehaviour
             {
                 if (note.isComboNote)
                 {
-                    //var value = c.multiplier;
-                    //var note.
+                    // check if starting notes contains any mood from the current note
+                    comboMood = comboStartNote.GetFirstMatchingMood(note);
+
+                    if (comboMood != Note.Mood.Blank)
+                    {
+                        PlayCombo(note, c);
+                    }
                 }
             }
             DrawCards(1);
@@ -195,9 +206,33 @@ public class GameController : MonoBehaviour
             {
                 DrawCards(1);
             }
+            BreakCombo();
         }
 
         uiHand.Setup(hand);
+    }
+
+    private void BreakCombo()
+    {
+        comboScore = 0;
+    }
+
+    private void PlayCombo(Note note, ComboCard c)
+    {
+        comboScore += note.moodScores[c.mood] * c.multiplier;
+
+        var v = GetMoodValues(note, c.mood);
+
+        for (int i = 0; i < v.Count; i++)
+        {
+            v[i].value += comboScore;
+
+            Debug.Log("ADd combo score to value for " + v[i].mood + " taking it from " + (v[i].value - comboScore) + " to " + v[i].value);
+        }
+
+        //5 + (2) = 2
+        // 200% = 4
+        // 300% = 12
     }
 
     private void OnMissedNote(UITapPoint tap)
@@ -228,6 +263,7 @@ public class GameController : MonoBehaviour
                     values[j].value += score - note.moodScores[mood];
                     uiScoring.SetScore(values[j].mood, values[j].value);
                 }
+                comboStartNote = note;
             }
         }
     }

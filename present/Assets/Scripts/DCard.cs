@@ -17,7 +17,7 @@ public class DCard
     public eCardType cardType;
     public int cardsToDraw;
     public string comboMood;
-    public float comboMultiplier;
+    public int comboMultiplier;
     public string[] moodChanges;
 
     public Card GetCard()

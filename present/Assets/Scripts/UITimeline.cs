@@ -65,7 +65,7 @@ public class UITimeline : MonoBehaviour {
 [System.Serializable]
 public class ComboCard : Card
 {
-    public float multiplier;
+    public int multiplier;
     public Note.Mood mood;
 }
 
@@ -139,5 +139,20 @@ public class Note
     public bool isComboNote = false;
 
     public float time;
+
+    internal Mood GetFirstMatchingMood(Note comboStartNote)
+    {
+        Mood m = Mood.Blank;
+
+        foreach (var item in moodScores.Keys)
+        {
+            if (comboStartNote.moodScores.ContainsKey(item))
+            {
+                return item;
+            }
+        }
+
+        return m;
+    }
 }
 
