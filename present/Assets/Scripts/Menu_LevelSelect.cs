@@ -3,6 +3,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
+using TMPro;
 
 public class Menu_LevelSelect : MonoBehaviour {
 
@@ -27,6 +28,8 @@ public class Menu_LevelSelect : MonoBehaviour {
     DLevel selectedLevel;
     List<DCard> selectedCards = new List<DCard>();
     List<DCard> inventoryCards = new List<DCard>();
+
+    public TextMeshProUGUI deckSizeGUI;
 
     public enum eCardType
     {
@@ -162,9 +165,7 @@ public class Menu_LevelSelect : MonoBehaviour {
     }
 
     public void BuildDeck()
-    {
-        
-
+    {       
         List<DCard> AMoodList = new List<DCard>();
         foreach (var i in inventoryCards)
         {
@@ -277,6 +278,9 @@ public class Menu_LevelSelect : MonoBehaviour {
             selectedCards.Add(obj);
             inventoryCards.Remove(obj);
 
+            ChangeDeckSizeText();
+
+
             BuildDeck();
         }
     }
@@ -286,7 +290,14 @@ public class Menu_LevelSelect : MonoBehaviour {
         inventoryCards.Add(obj);
         selectedCards.Remove(obj);
 
+        ChangeDeckSizeText();
+
         BuildDeck();
+    }
+
+    void ChangeDeckSizeText()
+    {
+        deckSizeGUI.text = selectedCards.Count + "/" + selectedLevel.deckSize;
     }
 
 }
