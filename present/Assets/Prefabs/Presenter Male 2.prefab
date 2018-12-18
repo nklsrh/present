@@ -72,6 +72,7 @@ GameObject:
   - component: {fileID: 4375211404808554}
   - component: {fileID: 33623696528193162}
   - component: {fileID: 23717648429304996}
+  - component: {fileID: 95245838312068824}
   m_Layer: 0
   m_Name: presenterMale_body_body (1)
   m_TagString: Untagged
@@ -1061,3 +1062,21 @@ MeshFilter:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1427818144644366}
   m_Mesh: {fileID: 4300028, guid: 76be5aaf0c8ef304c848943a24f35a08, type: 3}
+--- !u!95 &95245838312068824
+Animator:
+  serializedVersion: 3
+  m_ObjectHideFlags: 1
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1328751093714782}
+  m_Enabled: 1
+  m_Avatar: {fileID: 0}
+  m_Controller: {fileID: 9100000, guid: ead53891417dc4048911d2edc7aff3e3, type: 2}
+  m_CullingMode: 0
+  m_UpdateMode: 0
+  m_ApplyRootMotion: 0
+  m_LinearVelocityBlending: 0
+  m_WarningMessage: 
+  m_HasTransformHierarchy: 1
+  m_AllowConstantClipSamplingOptimization: 1
+  m_KeepAnimatorControllerStateOnDisable: 0

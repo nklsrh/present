@@ -89,6 +89,7 @@ GameObject:
   - component: {fileID: 4659774693420850}
   - component: {fileID: 33683411714431464}
   - component: {fileID: 23408407549761346}
+  - component: {fileID: 95590485079844992}
   m_Layer: 0
   m_Name: presenterFemale_body_body
   m_TagString: Untagged
@@ -220,7 +221,7 @@ Transform:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1156682410110372}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 0, y: 0.51781845, z: 34.70001}
+  m_LocalPosition: {x: 0, y: 0.5178185, z: 34.70001}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
   - {fileID: 4588563888910422}
@@ -842,3 +843,21 @@ MeshFilter:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1156682410110372}
   m_Mesh: {fileID: 4300006, guid: fe335ff6143876e4987fb07c612dffc1, type: 3}
+--- !u!95 &95590485079844992
+Animator:
+  serializedVersion: 3
+  m_ObjectHideFlags: 1
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1296791236558262}
+  m_Enabled: 1
+  m_Avatar: {fileID: 0}
+  m_Controller: {fileID: 9100000, guid: f4ab8318240ecd94b81ccd8ffa017362, type: 2}
+  m_CullingMode: 0
+  m_UpdateMode: 0
+  m_ApplyRootMotion: 0
+  m_LinearVelocityBlending: 0
+  m_WarningMessage: 
+  m_HasTransformHierarchy: 1
+  m_AllowConstantClipSamplingOptimization: 1
+  m_KeepAnimatorControllerStateOnDisable: 0

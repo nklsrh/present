@@ -127,7 +127,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!1 &1570472167413312
 GameObject:
   m_ObjectHideFlags: 1
@@ -257,6 +257,7 @@ GameObject:
   - component: {fileID: 4901104272298522}
   - component: {fileID: 33855807314737952}
   - component: {fileID: 23980223503724560}
+  - component: {fileID: 95195245070639298}
   m_Layer: 0
   m_Name: presenterMale_body_body
   m_TagString: Untagged
@@ -449,7 +450,7 @@ Transform:
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1983391326398258}
-  m_LocalRotation: {x: -0, y: 0.7071068, z: 0.7071068, w: 0}
+  m_LocalRotation: {x: 0.02469738, y: 0.70667535, z: 0.70667535, w: -0.024697382}
   m_LocalPosition: {x: 0, y: -25.622696, z: 1.7495728}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
@@ -458,7 +459,7 @@ Transform:
   - {fileID: 4652378078681422}
   m_Father: {fileID: 4071443755494880}
   m_RootOrder: 0
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+  m_LocalEulerAnglesHint: {x: -90.00001, y: 0, z: 184.00299}
 --- !u!4 &4999785162841280
 Transform:
   m_ObjectHideFlags: 1
@@ -1061,3 +1062,21 @@ MeshFilter:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1255673176303498}
   m_Mesh: {fileID: 4300008, guid: 76be5aaf0c8ef304c848943a24f35a08, type: 3}
+--- !u!95 &95195245070639298
+Animator:
+  serializedVersion: 3
+  m_ObjectHideFlags: 1
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1983391326398258}
+  m_Enabled: 1
+  m_Avatar: {fileID: 0}
+  m_Controller: {fileID: 9100000, guid: 62148ec9a32b0ef4d9cb953893c9fa82, type: 2}
+  m_CullingMode: 0
+  m_UpdateMode: 0
+  m_ApplyRootMotion: 0
+  m_LinearVelocityBlending: 0
+  m_WarningMessage: 
+  m_HasTransformHierarchy: 1
+  m_AllowConstantClipSamplingOptimization: 1
+  m_KeepAnimatorControllerStateOnDisable: 0

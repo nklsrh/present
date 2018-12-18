@@ -72,6 +72,7 @@ GameObject:
   - component: {fileID: 4521016133229958}
   - component: {fileID: 33375247953885286}
   - component: {fileID: 23404720479435956}
+  - component: {fileID: 95062821083340004}
   m_Layer: 0
   m_Name: presenterFemale_body_body (1)
   m_TagString: Untagged
@@ -211,7 +212,7 @@ Transform:
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1291608842289706}
-  m_LocalRotation: {x: -0, y: -0.7071068, z: -0.7071068, w: 0}
+  m_LocalRotation: {x: -0.085870534, y: -0.7018734, z: -0.7018734, w: 0.08587051}
   m_LocalPosition: {x: -0.39682007, y: -25.30001, z: 0.15045166}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
@@ -219,7 +220,7 @@ Transform:
   - {fileID: 4222789007044358}
   m_Father: {fileID: 4532481221136300}
   m_RootOrder: 0
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+  m_LocalEulerAnglesHint: {x: -90.00001, y: 0, z: -166.05}
 --- !u!4 &4532481221136300
 Transform:
   m_ObjectHideFlags: 1
@@ -253,14 +254,14 @@ Transform:
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1277623245628406}
-  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalRotation: {x: 0.085619606, y: 0.01776415, z: 0.20237334, w: 0.97539675}
   m_LocalPosition: {x: 0, y: 0.51781845, z: 34.70001}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
   - {fileID: 4402959232971352}
   m_Father: {fileID: 4521016133229958}
   m_RootOrder: 0
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+  m_LocalEulerAnglesHint: {x: 9.1970005, y: 4.026, z: 23.767}
 --- !u!4 &4861864381253798
 Transform:
   m_ObjectHideFlags: 1
@@ -623,3 +624,21 @@ MeshFilter:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1823306060013004}
   m_Mesh: {fileID: 4300024, guid: fe335ff6143876e4987fb07c612dffc1, type: 3}
+--- !u!95 &95062821083340004
+Animator:
+  serializedVersion: 3
+  m_ObjectHideFlags: 1
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1291608842289706}
+  m_Enabled: 1
+  m_Avatar: {fileID: 0}
+  m_Controller: {fileID: 9100000, guid: 738cbeed83fe0074aad1c0a4eb74e9be, type: 2}
+  m_CullingMode: 0
+  m_UpdateMode: 0
+  m_ApplyRootMotion: 0
+  m_LinearVelocityBlending: 0
+  m_WarningMessage: 
+  m_HasTransformHierarchy: 1
+  m_AllowConstantClipSamplingOptimization: 1
+  m_KeepAnimatorControllerStateOnDisable: 0
