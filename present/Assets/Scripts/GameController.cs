@@ -205,10 +205,6 @@ public class GameController : MonoBehaviour
             BreakCombo();
         }
 
-        if (hand.Count == 0)
-        {
-            DrawCards(1);
-        }
         uiHand.Setup(hand);
     }
 
@@ -243,6 +239,11 @@ public class GameController : MonoBehaviour
             moodValues[j].value -= PENALTY;
 
             uiScoring.SetScore(moodValues[j].mood, moodValues[j].value);
+        }
+
+        if (hand.Count == 0)
+        {
+            DrawCards(1);
         }
     }
 
