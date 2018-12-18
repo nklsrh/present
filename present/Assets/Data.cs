@@ -33,7 +33,7 @@ namespace DataTypes{
 		}
 	}
 	public class SheetStartingDeck: IEnumerable{
-		public System.DateTime updated = new System.DateTime(2018,12,18,5,21,10);
+		public System.DateTime updated = new System.DateTime(2018,12,18,6,15,46);
 		public readonly string[] labels = new string[]{"string id"};
 		private StartingDeck[] _rows = new StartingDeck[30];
 		public void Init() {
@@ -196,9 +196,9 @@ namespace DataTypes{
 		}
 	}
 	public class SheetCard: IEnumerable{
-		public System.DateTime updated = new System.DateTime(2018,12,18,5,21,10);
+		public System.DateTime updated = new System.DateTime(2018,12,18,6,15,46);
 		public readonly string[] labels = new string[]{"id","index","name","description","enum cardType","int cardsToDraw","string comboMood","int comboMultiplier","string[] moodChanges"};
-		private Card[] _rows = new Card[64];
+		private Card[] _rows = new Card[55];
 		public void Init() {
 			_rows = new Card[]{
 					new Card("card_mood_1",1,"","",DCard.eCardType.mood,0,"",0,new string[]{"A","0","B","0","C","1"}),
@@ -254,15 +254,6 @@ namespace DataTypes{
 					new Card("card_mood_56",56,"","",DCard.eCardType.mood,0,"",0,new string[]{"A","3","B","2","C","0"}),
 					new Card("card_mood_57",57,"","",DCard.eCardType.mood,0,"",0,new string[]{"A","3","B","2","C","1"}),
 					new Card("card_mood_60",60,"","",DCard.eCardType.mood,0,"",0,new string[]{"A","3","B","3","C","0"}),
-					new Card("card_combo_1",64,"","",DCard.eCardType.combo,0,"A",2,new string[]{}),
-					new Card("card_combo_2",65,"","",DCard.eCardType.combo,0,"A",3,new string[]{}),
-					new Card("card_combo_3",66,"","",DCard.eCardType.combo,0,"A",5,new string[]{}),
-					new Card("card_combo_4",67,"","",DCard.eCardType.combo,0,"B",2,new string[]{}),
-					new Card("card_combo_5",68,"","",DCard.eCardType.combo,0,"B",3,new string[]{}),
-					new Card("card_combo_6",69,"","",DCard.eCardType.combo,0,"B",5,new string[]{}),
-					new Card("card_combo_7",70,"","",DCard.eCardType.combo,0,"C",2,new string[]{}),
-					new Card("card_combo_8",71,"","",DCard.eCardType.combo,0,"C",3,new string[]{}),
-					new Card("card_combo_9",72,"","",DCard.eCardType.combo,0,"C",5,new string[]{}),
 					new Card("card_draw_1",73,"","",DCard.eCardType.draw,2,"",0,new string[]{}),
 					new Card("card_draw_2",74,"","",DCard.eCardType.draw,3,"",0,new string[]{})
 				};
@@ -395,17 +386,8 @@ namespace DataTypes{
 		public Card card_mood_56{	get{ return _rows[50]; } }
 		public Card card_mood_57{	get{ return _rows[51]; } }
 		public Card card_mood_60{	get{ return _rows[52]; } }
-		public Card card_combo_1{	get{ return _rows[53]; } }
-		public Card card_combo_2{	get{ return _rows[54]; } }
-		public Card card_combo_3{	get{ return _rows[55]; } }
-		public Card card_combo_4{	get{ return _rows[56]; } }
-		public Card card_combo_5{	get{ return _rows[57]; } }
-		public Card card_combo_6{	get{ return _rows[58]; } }
-		public Card card_combo_7{	get{ return _rows[59]; } }
-		public Card card_combo_8{	get{ return _rows[60]; } }
-		public Card card_combo_9{	get{ return _rows[61]; } }
-		public Card card_draw_1{	get{ return _rows[62]; } }
-		public Card card_draw_2{	get{ return _rows[63]; } }
+		public Card card_draw_1{	get{ return _rows[53]; } }
+		public Card card_draw_2{	get{ return _rows[54]; } }
 
 	}
 }
@@ -430,12 +412,11 @@ namespace DataTypes{
 		}
 	}
 	public class SheetLevel: IEnumerable{
-		public System.DateTime updated = new System.DateTime(2018,12,18,5,21,10);
+		public System.DateTime updated = new System.DateTime(2018,12,18,6,15,46);
 		public readonly string[] labels = new string[]{"id","int startA","int startB","int startC","int scoreA","int scoreB","int scoreC","int startAnger","int angerLimit","int angerReduction","int deckSize","string[] moodChanges"};
-		private Level[] _rows = new Level[6];
+		private Level[] _rows = new Level[5];
 		public void Init() {
 			_rows = new Level[]{
-					new Level("test_level",20,10,60,70,60,50,0,50,10,30,new string[]{"0;1;1;0","0;1;1;0","0;2;1;0","0;1;3;0","0;2;2;0","0;1;1;0","0;1;0;0","0;1;0;0","0;1;0;0","0;0;1;0","0;0;2;0","0;0;3;0","0;0;1;0","0;1;1;0","0;3;3;0","0;1;1;0","0;2;1;0","0;0;1;0","0;1;0;0","0;2;2;0","0;1;0;0","0;0;2;0","0;0;1;0","0;3;3;0"}),
 					new Level("Level 1",10,0,0,25,0,0,0,40,10,30,new string[]{"0;1;0;0","0;1;0;0","0;2;0;0","0;3;0;0","0;2;0;0","0;1;0;0","0;2;0;0","0;1;0;0","0;3;0;0","0;1;0;0","0;2;0;0","0;1;0;0","0;1;0;0","0;1;0;0","0;3;0;0","0;1;0;0","0;2;0;0","0;1;0;0","0;1;0;0","0;2;0;0","0;1;0;0","0;1;0;0","0;0;1;0","0;2;0;0"}),
 					new Level("Level 2",10,10,10,20,20,0,0,30,10,30,new string[]{"0;1;0;0","0;0;1;0","0;1;1;0","0;0;1;0","0;1;0;0","0;1;1;0","0;1;0;0","0;1;0;0","0;1;0;0","0;0;1;0","0;0;2;0","0;1;0;0","0;0;1;0","0;1;1;0","0;1;2;0","0;1;1;0","0;0;1;0","0;0;1;0","0;1;0;0","0;1;1;0","0;1;0;0","0;3;0;0","0;0;1;0","0;0;3;0"}),
 					new Level("Level 3",15,15,15,30,30,25,0,25,10,30,new string[]{"0;1;1;0","0;0;2;2","0;1;2;1","0;1;2;1","0;1;1;3","0;1;2;1","0;1;1;0","0;0;0;1","0;1;0;1","0;2;1;0","0;0;2;1","0;1;0;2","0;2;0;1","0;1;1;1","0;1;2;3","0;2;2;0","0;1;0;1","0;1;1;0","0;1;0;0","0;2;2;0","0;1;1;0","0;2;1;1","0;0;1;0","0;2;2;3"}),
@@ -518,12 +499,11 @@ namespace DataTypes{
 		}
 		//Specific Items
 
-		public Level test_level{	get{ return _rows[0]; } }
-		public Level level1{	get{ return _rows[1]; } }
-		public Level level2{	get{ return _rows[2]; } }
-		public Level level3{	get{ return _rows[3]; } }
-		public Level level4{	get{ return _rows[4]; } }
-		public Level level5{	get{ return _rows[5]; } }
+		public Level level1{	get{ return _rows[0]; } }
+		public Level level2{	get{ return _rows[1]; } }
+		public Level level3{	get{ return _rows[2]; } }
+		public Level level4{	get{ return _rows[3]; } }
+		public Level level5{	get{ return _rows[4]; } }
 
 	}
 }
@@ -540,12 +520,11 @@ namespace DataTypes{
 		}
 	}
 	public class SheetTimings: IEnumerable{
-		public System.DateTime updated = new System.DateTime(2018,12,18,5,21,10);
+		public System.DateTime updated = new System.DateTime(2018,12,18,6,15,46);
 		public readonly string[] labels = new string[]{"id","string[] moodChanges"};
-		private Timings[] _rows = new Timings[6];
+		private Timings[] _rows = new Timings[5];
 		public void Init() {
 			_rows = new Timings[]{
-					new Timings("test_level",new string[]{"5","3","2","2","3","2_COMBO","1.5","2","4","2","3","2","2","2","1.5","1.5","2","2","3","1.5","1.5","1.5","2","1.5"}),
 					new Timings("Level 1",new string[]{"5","3","2","2","3","2_COMBO","1.5","2","4","2","3","2","2","2","1.5","1.5","2","2","3","1.5","1.5","1.5","2","1.5"}),
 					new Timings("Level 2",new string[]{"5","3","2","2","3","2_COMBO","1.5","2","4","2","3","2","2","2","1.5","1.5","2","2","3","1.5","1.5","1.5","2","1.5"}),
 					new Timings("Level 3",new string[]{"5","3","2","2","3","2_COMBO","1.5","2","4","2","3","2","2","2","1.5","1.5","2","2","3","1.5","1.5","1.5","2","1.5"}),
@@ -628,12 +607,11 @@ namespace DataTypes{
 		}
 		//Specific Items
 
-		public Timings test_level{	get{ return _rows[0]; } }
-		public Timings level1{	get{ return _rows[1]; } }
-		public Timings level2{	get{ return _rows[2]; } }
-		public Timings level3{	get{ return _rows[3]; } }
-		public Timings level4{	get{ return _rows[4]; } }
-		public Timings level5{	get{ return _rows[5]; } }
+		public Timings level1{	get{ return _rows[0]; } }
+		public Timings level2{	get{ return _rows[1]; } }
+		public Timings level3{	get{ return _rows[2]; } }
+		public Timings level4{	get{ return _rows[3]; } }
+		public Timings level5{	get{ return _rows[4]; } }
 
 	}
 }
