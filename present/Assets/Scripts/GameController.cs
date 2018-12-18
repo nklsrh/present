@@ -152,13 +152,12 @@ public class GameController : MonoBehaviour
             if (Input.GetKeyDown(KeyCode.D))
             {
                 //DrawCards(1);
-                //OnLevelFinished();
-                menu_Game.AnimateScore(moodValues[0].mood, moodValues[0].value);
+                LevelComplete();
             }
 
             if (uiTimeline.IsLevelComplete())
             {
-                OnLevelFinished();
+                LevelComplete();
             }
         }
     }
@@ -360,6 +359,12 @@ public class GameController : MonoBehaviour
     private void EndLevelBecauseAnger()
     {
         menu_Game.AnimateAngerFail();
+        OnLevelFinished();
+    }
+
+    private void LevelComplete()
+    {
+        menu_Game.AnimateLevelFinish();
         OnLevelFinished();
     }
 

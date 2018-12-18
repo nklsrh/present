@@ -41,23 +41,32 @@ public class Menu_Game : MonoBehaviour
     internal void AnimateAnger(int angerAmount)
     {
         txtAnger.text = angerAmount.ToString("00");
+        anger.gameObject.SetActive(true);
         anger.Play();
     }   
 
     internal void AnimateAngerFail()
     {
+        angerFail.gameObject.SetActive(true);
         angerFail.Play();
     }
 
     public void AnimateLevelFinish()
     {
+        levelFinsh.gameObject.SetActive(true);
         levelFinsh.Play();
     }
 
     internal void Reset()
     {
+        levelFinsh.gameObject.SetActive(false);
+        levelFinsh.Stop();
         levelFinsh.Rewind();
+        anger.gameObject.SetActive(false);
+        anger.Stop();
         anger.Rewind();
+        angerFail.gameObject.SetActive(false);
+        angerFail.Stop();
         angerFail.Rewind();
     }
 }
