@@ -41,6 +41,7 @@ public class GameController : MonoBehaviour
 
     public int currentAngerAmount;
 
+
     public void Setup(DLevel level, List<Card> deckCards)
     {
         this.level = level;
@@ -152,13 +153,18 @@ public class GameController : MonoBehaviour
             if (Input.GetKeyDown(KeyCode.D))
             {
                 //DrawCards(1);
-                LevelComplete();
+               // LevelComplete();
             }
 
             if (uiTimeline.IsLevelComplete())
             {
                 LevelComplete();
             }
+        }
+
+        if (Input.GetKeyDown(KeyCode.Escape))
+        {
+            Application.Quit();
         }
     }
 
