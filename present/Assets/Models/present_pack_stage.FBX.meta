@@ -1,0 +1,190 @@
+fileFormatVersion: 2
+guid: 04b9e7ba00f22c944a350a52d9edb806
+ModelImporter:
+  serializedVersion: 23
+  fileIDToRecycleName:
+    100000: //RootNode
+    100002: stage_area
+    100004: stage_backdrop_chocolate
+    100006: stage_backdrop_curtains
+    100008: stage_backdrop_tvs
+    100010: stage_dressing_circlefrontCurtain
+    100012: stage_dressing_couch
+    100014: stage_dressing_feedbackMonitor
+    100016: stage_dressing_feedbackSpeaker
+    100018: stage_dressing_footrest
+    100020: stage_dressing_plant
+    100022: stage_dressing_table
+    100024: stage_ground_arched
+    100026: stage_ground_circlefront
+    100028: stage_ground_modern
+    100030: stage_prop_giftx
+    100032: stage_prop_microphonecircle
+    100034: stage_prop_microphonelegs
+    100036: stage_prop_podiumRound
+    100038: stage_prop_podiumSquare
+    100040: stage_prop_presentx
+    400000: //RootNode
+    400002: stage_area
+    400004: stage_backdrop_chocolate
+    400006: stage_backdrop_curtains
+    400008: stage_backdrop_tvs
+    400010: stage_dressing_circlefrontCurtain
+    400012: stage_dressing_couch
+    400014: stage_dressing_feedbackMonitor
+    400016: stage_dressing_feedbackSpeaker
+    400018: stage_dressing_footrest
+    400020: stage_dressing_plant
+    400022: stage_dressing_table
+    400024: stage_ground_arched
+    400026: stage_ground_circlefront
+    400028: stage_ground_modern
+    400030: stage_prop_giftx
+    400032: stage_prop_microphonecircle
+    400034: stage_prop_microphonelegs
+    400036: stage_prop_podiumRound
+    400038: stage_prop_podiumSquare
+    400040: stage_prop_presentx
+    2100000: 03 - Default
+    2300000: stage_area
+    2300002: stage_backdrop_chocolate
+    2300004: stage_backdrop_curtains
+    2300006: stage_backdrop_tvs
+    2300008: stage_dressing_circlefrontCurtain
+    2300010: stage_dressing_couch
+    2300012: stage_dressing_feedbackMonitor
+    2300014: stage_dressing_feedbackSpeaker
+    2300016: stage_dressing_footrest
+    2300018: stage_dressing_plant
+    2300020: stage_dressing_table
+    2300022: stage_ground_arched
+    2300024: stage_ground_circlefront
+    2300026: stage_ground_modern
+    2300028: stage_prop_giftx
+    2300030: stage_prop_microphonecircle
+    2300032: stage_prop_microphonelegs
+    2300034: stage_prop_podiumRound
+    2300036: stage_prop_podiumSquare
+    2300038: stage_prop_presentx
+    3300000: stage_area
+    3300002: stage_backdrop_chocolate
+    3300004: stage_backdrop_curtains
+    3300006: stage_backdrop_tvs
+    3300008: stage_dressing_circlefrontCurtain
+    3300010: stage_dressing_couch
+    3300012: stage_dressing_feedbackMonitor
+    3300014: stage_dressing_feedbackSpeaker
+    3300016: stage_dressing_footrest
+    3300018: stage_dressing_plant
+    3300020: stage_dressing_table
+    3300022: stage_ground_arched
+    3300024: stage_ground_circlefront
+    3300026: stage_ground_modern
+    3300028: stage_prop_giftx
+    3300030: stage_prop_microphonecircle
+    3300032: stage_prop_microphonelegs
+    3300034: stage_prop_podiumRound
+    3300036: stage_prop_podiumSquare
+    3300038: stage_prop_presentx
+    4300000: stage_ground_circlefront
+    4300002: stage_backdrop_tvs
+    4300004: stage_dressing_circlefrontCurtain
+    4300006: stage_ground_arched
+    4300008: stage_backdrop_curtains
+    4300010: stage_ground_modern
+    4300012: stage_area
+    4300014: stage_prop_microphonelegs
+    4300016: stage_prop_microphonecircle
+    4300018: stage_dressing_feedbackSpeaker
+    4300020: stage_dressing_footrest
+    4300022: stage_dressing_plant
+    4300024: stage_dressing_couch
+    4300026: stage_dressing_feedbackMonitor
+    4300028: stage_dressing_table
+    4300030: stage_prop_podiumRound
+    4300032: stage_prop_podiumSquare
+    4300034: stage_backdrop_chocolate
+    4300036: stage_prop_presentx
+    4300038: stage_prop_giftx
+  externalObjects: {}
+  materials:
+    importMaterials: 1
+    materialName: 0
+    materialSearch: 1
+    materialLocation: 1
+  animations:
+    legacyGenerateAnimations: 4
+    bakeSimulation: 0
+    resampleCurves: 1
+    optimizeGameObjects: 0
+    motionNodeName: 
+    rigImportErrors: 
+    rigImportWarnings: 
+    animationImportErrors: 
+    animationImportWarnings: 
+    animationRetargetingWarnings: 
+    animationDoRetargetingWarnings: 0
+    importAnimatedCustomProperties: 0
+    importConstraints: 0
+    animationCompression: 1
+    animationRotationError: 0.5
+    animationPositionError: 0.5
+    animationScaleError: 0.5
+    animationWrapMode: 0
+    extraExposedTransformPaths: []
+    extraUserProperties: []
+    clipAnimations: []
+    isReadable: 1
+  meshes:
+    lODScreenPercentages: []
+    globalScale: 1
+    meshCompression: 0
+    addColliders: 0
+    importVisibility: 1
+    importBlendShapes: 1
+    importCameras: 1
+    importLights: 1
+    swapUVChannels: 0
+    generateSecondaryUV: 0
+    useFileUnits: 1
+    optimizeMeshForGPU: 1
+    keepQuads: 0
+    weldVertices: 1
+    preserveHierarchy: 0
+    indexFormat: 0
+    secondaryUVAngleDistortion: 8
+    secondaryUVAreaDistortion: 15.000001
+    secondaryUVHardAngle: 88
+    secondaryUVPackMargin: 4
+    useFileScale: 1
+    previousCalculatedGlobalScale: 1
+    hasPreviousCalculatedGlobalScale: 0
+  tangentSpace:
+    normalSmoothAngle: 60
+    normalImportMode: 0
+    tangentImportMode: 3
+    normalCalculationMode: 4
+  importAnimation: 1
+  copyAvatar: 0
+  humanDescription:
+    serializedVersion: 2
+    human: []
+    skeleton: []
+    armTwist: 0.5
+    foreArmTwist: 0.5
+    upperLegTwist: 0.5
+    legTwist: 0.5
+    armStretch: 0.05
+    legStretch: 0.05
+    feetSpacing: 0
+    rootMotionBoneName: 
+    hasTranslationDoF: 0
+    hasExtraRoot: 0
+    skeletonHasParents: 1
+  lastHumanDescriptionAvatarSource: {instanceID: 0}
+  animationType: 0
+  humanoidOversampling: 1
+  additionalBone: 0
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 

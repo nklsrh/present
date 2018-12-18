@@ -1,0 +1,155 @@
+fileFormatVersion: 2
+guid: fe335ff6143876e4987fb07c612dffc1
+ModelImporter:
+  serializedVersion: 23
+  fileIDToRecycleName:
+    100000: //RootNode
+    100002: presenterFemale_body_armLeft
+    100004: presenterFemale_body_armRight
+    100006: presenterFemale_body_body
+    100008: presenterFemale_body_head
+    100010: presenterFemale_body_legLeft
+    100012: presenterFemale_body_legRight
+    100014: presenterFemale_hair_bobby
+    100016: presenterFemale_hair_sweepfringe
+    100018: presenterFemale_pants_base
+    100020: presenterFemale_pants_jeansLeft
+    100022: presenterFemale_pants_jeansRight
+    100024: presenterFemale_shirt_blackskirt
+    100026: presenterFemale_shirt_salmondress
+    400000: //RootNode
+    400002: presenterFemale_body_armLeft
+    400004: presenterFemale_body_armRight
+    400006: presenterFemale_body_body
+    400008: presenterFemale_body_head
+    400010: presenterFemale_body_legLeft
+    400012: presenterFemale_body_legRight
+    400014: presenterFemale_hair_bobby
+    400016: presenterFemale_hair_sweepfringe
+    400018: presenterFemale_pants_base
+    400020: presenterFemale_pants_jeansLeft
+    400022: presenterFemale_pants_jeansRight
+    400024: presenterFemale_shirt_blackskirt
+    400026: presenterFemale_shirt_salmondress
+    2100000: 03 - Default
+    2300000: presenterFemale_body_armLeft
+    2300002: presenterFemale_body_armRight
+    2300004: presenterFemale_body_body
+    2300006: presenterFemale_body_head
+    2300008: presenterFemale_body_legLeft
+    2300010: presenterFemale_body_legRight
+    2300012: presenterFemale_hair_bobby
+    2300014: presenterFemale_hair_sweepfringe
+    2300016: presenterFemale_pants_base
+    2300018: presenterFemale_pants_jeansLeft
+    2300020: presenterFemale_pants_jeansRight
+    2300022: presenterFemale_shirt_blackskirt
+    2300024: presenterFemale_shirt_salmondress
+    3300000: presenterFemale_body_armLeft
+    3300002: presenterFemale_body_armRight
+    3300004: presenterFemale_body_body
+    3300006: presenterFemale_body_head
+    3300008: presenterFemale_body_legLeft
+    3300010: presenterFemale_body_legRight
+    3300012: presenterFemale_hair_bobby
+    3300014: presenterFemale_hair_sweepfringe
+    3300016: presenterFemale_pants_base
+    3300018: presenterFemale_pants_jeansLeft
+    3300020: presenterFemale_pants_jeansRight
+    3300022: presenterFemale_shirt_blackskirt
+    3300024: presenterFemale_shirt_salmondress
+    4300000: presenterFemale_body_armLeft
+    4300002: presenterFemale_body_armRight
+    4300004: presenterFemale_body_body
+    4300006: presenterFemale_body_head
+    4300008: presenterFemale_body_legLeft
+    4300010: presenterFemale_body_legRight
+    4300012: presenterFemale_hair_sweepfringe
+    4300014: presenterFemale_hair_bobby
+    4300016: presenterFemale_pants_base
+    4300018: presenterFemale_pants_jeansRight
+    4300020: presenterFemale_pants_jeansLeft
+    4300022: presenterFemale_shirt_blackskirt
+    4300024: presenterFemale_shirt_salmondress
+  externalObjects: {}
+  materials:
+    importMaterials: 1
+    materialName: 0
+    materialSearch: 1
+    materialLocation: 1
+  animations:
+    legacyGenerateAnimations: 4
+    bakeSimulation: 0
+    resampleCurves: 1
+    optimizeGameObjects: 0
+    motionNodeName: 
+    rigImportErrors: 
+    rigImportWarnings: 
+    animationImportErrors: 
+    animationImportWarnings: 
+    animationRetargetingWarnings: 
+    animationDoRetargetingWarnings: 0
+    importAnimatedCustomProperties: 0
+    importConstraints: 0
+    animationCompression: 1
+    animationRotationError: 0.5
+    animationPositionError: 0.5
+    animationScaleError: 0.5
+    animationWrapMode: 0
+    extraExposedTransformPaths: []
+    extraUserProperties: []
+    clipAnimations: []
+    isReadable: 1
+  meshes:
+    lODScreenPercentages: []
+    globalScale: 1
+    meshCompression: 0
+    addColliders: 0
+    importVisibility: 1
+    importBlendShapes: 1
+    importCameras: 1
+    importLights: 1
+    swapUVChannels: 0
+    generateSecondaryUV: 0
+    useFileUnits: 1
+    optimizeMeshForGPU: 1
+    keepQuads: 0
+    weldVertices: 1
+    preserveHierarchy: 0
+    indexFormat: 0
+    secondaryUVAngleDistortion: 8
+    secondaryUVAreaDistortion: 15.000001
+    secondaryUVHardAngle: 88
+    secondaryUVPackMargin: 4
+    useFileScale: 1
+    previousCalculatedGlobalScale: 1
+    hasPreviousCalculatedGlobalScale: 0
+  tangentSpace:
+    normalSmoothAngle: 60
+    normalImportMode: 0
+    tangentImportMode: 3
+    normalCalculationMode: 4
+  importAnimation: 1
+  copyAvatar: 0
+  humanDescription:
+    serializedVersion: 2
+    human: []
+    skeleton: []
+    armTwist: 0.5
+    foreArmTwist: 0.5
+    upperLegTwist: 0.5
+    legTwist: 0.5
+    armStretch: 0.05
+    legStretch: 0.05
+    feetSpacing: 0
+    rootMotionBoneName: 
+    hasTranslationDoF: 0
+    hasExtraRoot: 0
+    skeletonHasParents: 1
+  lastHumanDescriptionAvatarSource: {instanceID: 0}
+  animationType: 0
+  humanoidOversampling: 1
+  additionalBone: 0
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 

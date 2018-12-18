@@ -1,0 +1,195 @@
+fileFormatVersion: 2
+guid: 76be5aaf0c8ef304c848943a24f35a08
+ModelImporter:
+  serializedVersion: 23
+  fileIDToRecycleName:
+    100000: //RootNode
+    100002: presenterMale_body_armLeft
+    100004: presenterMale_body_armRight
+    100006: presenterMale_body_body
+    100008: presenterMale_body_head
+    100010: presenterMale_body_legLeft
+    100012: presenterMale_body_legRight
+    100014: presenterMale_face_fullbeard
+    100016: presenterMale_face_goatee
+    100018: presenterMale_hair_fauxhawk
+    100020: presenterMale_hair_longemo
+    100022: presenterMale_pants_base
+    100024: presenterMale_pants_longsLeft
+    100026: presenterMale_pants_longsRight
+    100028: presenterMale_pants_shortsLeft
+    100030: presenterMale_pants_shortsRight
+    100032: presenterMale_shirtPlain_body
+    100034: presenterMale_shirtPlain_left
+    100036: presenterMale_shirtPlain_right
+    100038: presenterMale_shirtPocket_body
+    100040: presenterMale_shirtPocket_left
+    100042: presenterMale_shirtPocket_right
+    400000: //RootNode
+    400002: presenterMale_body_armLeft
+    400004: presenterMale_body_armRight
+    400006: presenterMale_body_body
+    400008: presenterMale_body_head
+    400010: presenterMale_body_legLeft
+    400012: presenterMale_body_legRight
+    400014: presenterMale_face_fullbeard
+    400016: presenterMale_face_goatee
+    400018: presenterMale_hair_fauxhawk
+    400020: presenterMale_hair_longemo
+    400022: presenterMale_pants_base
+    400024: presenterMale_pants_longsLeft
+    400026: presenterMale_pants_longsRight
+    400028: presenterMale_pants_shortsLeft
+    400030: presenterMale_pants_shortsRight
+    400032: presenterMale_shirtPlain_body
+    400034: presenterMale_shirtPlain_left
+    400036: presenterMale_shirtPlain_right
+    400038: presenterMale_shirtPocket_body
+    400040: presenterMale_shirtPocket_left
+    400042: presenterMale_shirtPocket_right
+    2100000: 03 - Default
+    2300000: presenterMale_body_armLeft
+    2300002: presenterMale_body_armRight
+    2300004: presenterMale_body_body
+    2300006: presenterMale_body_head
+    2300008: presenterMale_body_legLeft
+    2300010: presenterMale_body_legRight
+    2300012: presenterMale_face_fullbeard
+    2300014: presenterMale_face_goatee
+    2300016: presenterMale_hair_fauxhawk
+    2300018: presenterMale_hair_longemo
+    2300020: presenterMale_pants_base
+    2300022: presenterMale_pants_longsLeft
+    2300024: presenterMale_pants_longsRight
+    2300026: presenterMale_pants_shortsLeft
+    2300028: presenterMale_pants_shortsRight
+    2300030: presenterMale_shirtPlain_body
+    2300032: presenterMale_shirtPlain_left
+    2300034: presenterMale_shirtPlain_right
+    2300036: presenterMale_shirtPocket_body
+    2300038: presenterMale_shirtPocket_left
+    2300040: presenterMale_shirtPocket_right
+    3300000: presenterMale_body_armLeft
+    3300002: presenterMale_body_armRight
+    3300004: presenterMale_body_body
+    3300006: presenterMale_body_head
+    3300008: presenterMale_body_legLeft
+    3300010: presenterMale_body_legRight
+    3300012: presenterMale_face_fullbeard
+    3300014: presenterMale_face_goatee
+    3300016: presenterMale_hair_fauxhawk
+    3300018: presenterMale_hair_longemo
+    3300020: presenterMale_pants_base
+    3300022: presenterMale_pants_longsLeft
+    3300024: presenterMale_pants_longsRight
+    3300026: presenterMale_pants_shortsLeft
+    3300028: presenterMale_pants_shortsRight
+    3300030: presenterMale_shirtPlain_body
+    3300032: presenterMale_shirtPlain_left
+    3300034: presenterMale_shirtPlain_right
+    3300036: presenterMale_shirtPocket_body
+    3300038: presenterMale_shirtPocket_left
+    3300040: presenterMale_shirtPocket_right
+    4300000: presenterMale_body_head
+    4300002: presenterMale_hair_fauxhawk
+    4300004: presenterMale_hair_longemo
+    4300006: presenterMale_face_fullbeard
+    4300008: presenterMale_face_goatee
+    4300010: presenterMale_body_body
+    4300012: presenterMale_pants_base
+    4300014: presenterMale_shirtPlain_body
+    4300016: presenterMale_body_armRight
+    4300018: presenterMale_body_armLeft
+    4300020: presenterMale_body_legRight
+    4300022: presenterMale_shirtPlain_left
+    4300024: presenterMale_shirtPlain_right
+    4300026: presenterMale_body_legLeft
+    4300028: presenterMale_pants_shortsLeft
+    4300030: presenterMale_pants_shortsRight
+    4300032: presenterMale_shirtPocket_right
+    4300034: presenterMale_shirtPocket_left
+    4300036: presenterMale_shirtPocket_body
+    4300038: presenterMale_pants_longsRight
+    4300040: presenterMale_pants_longsLeft
+  externalObjects: {}
+  materials:
+    importMaterials: 1
+    materialName: 0
+    materialSearch: 1
+    materialLocation: 1
+  animations:
+    legacyGenerateAnimations: 4
+    bakeSimulation: 0
+    resampleCurves: 1
+    optimizeGameObjects: 0
+    motionNodeName: 
+    rigImportErrors: 
+    rigImportWarnings: 
+    animationImportErrors: 
+    animationImportWarnings: 
+    animationRetargetingWarnings: 
+    animationDoRetargetingWarnings: 0
+    importAnimatedCustomProperties: 0
+    importConstraints: 0
+    animationCompression: 1
+    animationRotationError: 0.5
+    animationPositionError: 0.5
+    animationScaleError: 0.5
+    animationWrapMode: 0
+    extraExposedTransformPaths: []
+    extraUserProperties: []
+    clipAnimations: []
+    isReadable: 1
+  meshes:
+    lODScreenPercentages: []
+    globalScale: 1
+    meshCompression: 0
+    addColliders: 0
+    importVisibility: 1
+    importBlendShapes: 1
+    importCameras: 1
+    importLights: 1
+    swapUVChannels: 0
+    generateSecondaryUV: 0
+    useFileUnits: 1
+    optimizeMeshForGPU: 1
+    keepQuads: 0
+    weldVertices: 1
+    preserveHierarchy: 0
+    indexFormat: 0
+    secondaryUVAngleDistortion: 8
+    secondaryUVAreaDistortion: 15.000001
+    secondaryUVHardAngle: 88
+    secondaryUVPackMargin: 4
+    useFileScale: 1
+    previousCalculatedGlobalScale: 1
+    hasPreviousCalculatedGlobalScale: 0
+  tangentSpace:
+    normalSmoothAngle: 60
+    normalImportMode: 0
+    tangentImportMode: 3
+    normalCalculationMode: 4
+  importAnimation: 1
+  copyAvatar: 0
+  humanDescription:
+    serializedVersion: 2
+    human: []
+    skeleton: []
+    armTwist: 0.5
+    foreArmTwist: 0.5
+    upperLegTwist: 0.5
+    legTwist: 0.5
+    armStretch: 0.05
+    legStretch: 0.05
+    feetSpacing: 0
+    rootMotionBoneName: 
+    hasTranslationDoF: 0
+    hasExtraRoot: 0
+    skeletonHasParents: 1
+  lastHumanDescriptionAvatarSource: {instanceID: 0}
+  animationType: 0
+  humanoidOversampling: 1
+  additionalBone: 0
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 
