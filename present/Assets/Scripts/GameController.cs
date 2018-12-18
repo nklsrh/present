@@ -31,7 +31,9 @@ public class GameController : MonoBehaviour
     bool gameStarted = false;
 
     public Menu_Endgame menu_Endgame;
-    public GameObject menu_Game;
+    public Menu_Game menu_Game;
+
+    public StageRandomiser stageRandomiser;
 
     public Note comboStartNote;
     public int comboScore;
@@ -40,6 +42,8 @@ public class GameController : MonoBehaviour
     public void Setup(DLevel level, List<Card> deckCards)
     {
         this.level = level;
+
+        stageRandomiser.Randomise();
 
         SetupSong(level.id);
         SetupDeck(deckCards);
@@ -139,7 +143,8 @@ public class GameController : MonoBehaviour
             if (Input.GetKeyDown(KeyCode.D))
             {
                 //DrawCards(1);
-                OnLevelFinished();
+                //OnLevelFinished();
+                menu_Game.AnimateScore(moodValues[0].mood, moodValues[0].value);
             }
 
             if (uiTimeline.IsLevelComplete())
@@ -249,6 +254,8 @@ public class GameController : MonoBehaviour
 
     private void ScoreMood(Note note, MoodCard card)
     {
+        int numberOfMissedSlots = 0;
+
         for (int i = 0; i < card.moodChanges.Count; i++)
         {
             var moodChange = card.moodChanges[i];
@@ -261,11 +268,25 @@ public class GameController : MonoBehaviour
                 var values = moodValues.FindAll(r => r.mood == mood);
                 for (int j = 0; j < values.Count; j++)
                 {
-                    values[j].value += score - note.moodScores[mood];
+                    int delta = score - note.moodScores[mood];
+                    values[j].value += delta;
                     uiScoring.SetScore(values[j].mood, values[j].value);
+
+                    menu_Game.AnimateScore(values[j].mood, delta);
                 }
                 comboStartNote = note;
             }
+            else
+            {
+                // card missing this mood, convert into Anger
+                numberOfMissedSlots++;
+            }
+        }
+
+        if (numberOfMissedSlots == 0)
+        {
+            // card used up all the mood slots, excellent, now reduce Anger
+
         }
     }
 
@@ -277,7 +298,7 @@ public class GameController : MonoBehaviour
     public void OnLevelFinished()
     {
         menu_Endgame.Show();
-        menu_Game.SetActive(false);
+        menu_Game.gameObject.SetActive(false);
 
         gameStarted = false;
     }
