@@ -10,7 +10,14 @@ public class Menu_Game : MonoBehaviour
 
     private Dictionary<Note.Mood, Animation> animationDictonary = new Dictionary<Note.Mood, Animation>();
 
-	void Start ()
+    public Animation anger;
+    public TMPro.TextMeshProUGUI txtAnger;
+
+    public Animation angerFail;
+
+    public Animation levelFinsh;
+
+    void Start ()
     {
         for (int i = 0; i < animationsABC.Count; i++)
         {
@@ -22,7 +29,35 @@ public class Menu_Game : MonoBehaviour
     {
         int moodMinusBlank = (int)mood - 1;
 
-        animationDictonary[(Note.Mood)moodMinusBlank].Play();
+        Note.Mood moodSelcted = (Note.Mood)moodMinusBlank;
+
+        animationDictonary[moodSelcted].Stop();
+        animationDictonary[moodSelcted].Rewind();
+        animationDictonary[moodSelcted].Play();
+
         moods[moodMinusBlank].SetColor(mood.ToString(), value);
+    }
+
+    internal void AnimateAnger(int angerAmount)
+    {
+        txtAnger.text = angerAmount.ToString("00");
+        anger.Play();
+    }   
+
+    internal void AnimateAngerFail()
+    {
+        angerFail.Play();
+    }
+
+    public void AnimateLevelFinish()
+    {
+        levelFinsh.Play();
+    }
+
+    internal void Reset()
+    {
+        levelFinsh.Rewind();
+        anger.Rewind();
+        angerFail.Rewind();
     }
 }

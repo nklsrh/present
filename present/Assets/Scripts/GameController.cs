@@ -25,7 +25,7 @@ public class GameController : MonoBehaviour
     public const int MAX_HAND_SIZE = 7;
     public const int STARTING_HAND_SIZE = 4;
 
-    public const float TAP_NODE_TIME_WINDOW = 0.5f;       // how much time before and after the exact note point do we allow the user to tap
+    public const float TAP_NODE_TIME_WINDOW = 0.6f;       // how much time before and after the exact note point do we allow the user to tap
     public const int PENALTY = 2;
 
     bool gameStarted = false;
@@ -39,6 +39,8 @@ public class GameController : MonoBehaviour
     public int comboScore;
     public Note.Mood comboMood;
 
+    public int currentAngerAmount;
+
     public void Setup(DLevel level, List<Card> deckCards)
     {
         this.level = level;
@@ -50,9 +52,13 @@ public class GameController : MonoBehaviour
 
         SetupHand();
 
-        SetupScore(level.startA, level.startB, level.startC, level.scoreA, level.scoreB, level.scoreC);
+        currentAngerAmount = level.startAnger;
+
+        SetupScore(level.startA, level.startB, level.startC, level.scoreA, level.scoreB, level.scoreC, level.startAnger, level.angerLimit);
 
         currentTime = 0;
+
+        menu_Game.Reset();
 
         uiTimeline.Setup(song);
         uiTimeline.onMissedNote += OnMissedNote;
@@ -92,7 +98,7 @@ public class GameController : MonoBehaviour
         }
     }
 
-    private void SetupScore(int startA, int startB, int startC, int a, int b, int c)
+    private void SetupScore(int startA, int startB, int startC, int a, int b, int c, int startAnger, int angerLimit)
     {
         moodValues = new List<MoodValue>();
         moodValues.Add(new MoodValue() { mood = Note.Mood.A, value = startA });
@@ -103,6 +109,9 @@ public class GameController : MonoBehaviour
         uiScoring.SetScore(Note.Mood.A, startA, a);
         uiScoring.SetScore(Note.Mood.B, startB, b);
         uiScoring.SetScore(Note.Mood.C, startC, c);
+
+        uiScoring.SetAngerMax(angerLimit);
+        uiScoring.SetAnger(startAnger);
     }
 
     private void SetupDeck(List<Card> deckCards)
@@ -255,38 +264,91 @@ public class GameController : MonoBehaviour
     private void ScoreMood(Note note, MoodCard card)
     {
         int numberOfMissedSlots = 0;
+        int angerAmount = 0;
 
-        for (int i = 0; i < card.moodChanges.Count; i++)
+        foreach (var noteMood in note.moodScores)
         {
-            var moodChange = card.moodChanges[i];
-
-            var mood = moodChange.mood;
-            int score = moodChange.value;
-
-            if (note.moodScores.ContainsKey(mood))
+            bool hasMatchedWithCard = false;
+            foreach (var cardSlot in card.moodChanges)
             {
-                var values = moodValues.FindAll(r => r.mood == mood);
-                for (int j = 0; j < values.Count; j++)
+                // if player's card has the required mood
+                if (cardSlot.mood == noteMood.Key)
                 {
-                    int delta = score - note.moodScores[mood];
-                    values[j].value += delta;
-                    uiScoring.SetScore(values[j].mood, values[j].value);
+                    var gameScore = moodValues.Find(r => r.mood == cardSlot.mood);
 
-                    menu_Game.AnimateScore(values[j].mood, delta);
+                    if (gameScore != null)
+                    {
+                        int delta = cardSlot.value - noteMood.Value;
+
+                        int actualChange = 0;
+
+                        // max we add is the value from the note (don't go over that)
+                        if (delta > 0)
+                        {
+                            actualChange = note.moodScores[cardSlot.mood];
+                        }
+                        else if (delta == 0) // otherwise take the value from the card only
+                        {
+                            actualChange = cardSlot.value;
+                        }
+
+                        gameScore.value += actualChange;
+
+                        if (delta < 0) // if less than required, add to Anger
+                        {
+                            angerAmount += -delta;
+                        }
+
+                        uiScoring.SetScore(gameScore.mood, gameScore.value);
+
+                        if (actualChange > 0)
+                        {
+                            menu_Game.AnimateScore(gameScore.mood, actualChange);
+                        }
+
+                        hasMatchedWithCard = true;
+                    }
+                    comboStartNote = note;
                 }
-                comboStartNote = note;
+                else
+                {
+                    // if card has a mood not in the note, don't do anything with it
+                }
             }
-            else
+
+            if (!hasMatchedWithCard)
             {
-                // card missing this mood, convert into Anger
+                // if you played a card that doesn't have required mood from the Note, convert the note to Anger
+
                 numberOfMissedSlots++;
+                angerAmount += noteMood.Value;
             }
         }
 
-        if (numberOfMissedSlots == 0)
+        if (angerAmount > 0)
+        {
+            int newAngerAmount = currentAngerAmount + angerAmount;
+            uiScoring.SetAnger(newAngerAmount);
+
+            menu_Game.AnimateAnger(angerAmount);
+
+            currentAngerAmount = newAngerAmount;
+        }
+        else if (numberOfMissedSlots == 0)
         {
             // card used up all the mood slots, excellent, now reduce Anger
 
+            currentAngerAmount -= level.angerReduction;
+
+            if (currentAngerAmount < 0)
+            {
+                currentAngerAmount = 0;
+            }
+        }
+
+        if (currentAngerAmount >= level.angerLimit)
+        {
+            EndLevelBecauseAnger();
         }
     }
 
@@ -295,11 +357,24 @@ public class GameController : MonoBehaviour
         return moodValues.FindAll(r => r.mood == Note.Mood.Blank || note.moodScores.ContainsKey(r.mood));
     }
 
+    private void EndLevelBecauseAnger()
+    {
+        menu_Game.AnimateAngerFail();
+        OnLevelFinished();
+    }
+
     public void OnLevelFinished()
     {
-        menu_Endgame.Show();
-        menu_Game.gameObject.SetActive(false);
+        StartCoroutine(WaitThenFinishLevel());
 
         gameStarted = false;
+    }
+
+    IEnumerator WaitThenFinishLevel()
+    {
+        yield return new WaitForSeconds(5.0f);
+
+        menu_Endgame.Show();
+        menu_Game.gameObject.SetActive(false);
     }
 }

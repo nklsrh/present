@@ -33,7 +33,7 @@ namespace DataTypes{
 		}
 	}
 	public class SheetStartingDeck: IEnumerable{
-		public System.DateTime updated = new System.DateTime(2018,12,16,5,21,37);
+		public System.DateTime updated = new System.DateTime(2018,12,18,5,21,10);
 		public readonly string[] labels = new string[]{"string id"};
 		private StartingDeck[] _rows = new StartingDeck[30];
 		public void Init() {
@@ -196,7 +196,7 @@ namespace DataTypes{
 		}
 	}
 	public class SheetCard: IEnumerable{
-		public System.DateTime updated = new System.DateTime(2018,12,16,5,21,37);
+		public System.DateTime updated = new System.DateTime(2018,12,18,5,21,10);
 		public readonly string[] labels = new string[]{"id","index","name","description","enum cardType","int cardsToDraw","string comboMood","int comboMultiplier","string[] moodChanges"};
 		private Card[] _rows = new Card[64];
 		public void Init() {
@@ -414,7 +414,7 @@ namespace DataTypes{
 
 		public Level(){}
 
-		public Level(string id, int startA, int startB, int startC, int scoreA, int scoreB, int scoreC, int deckSize, string[] moodChanges){
+		public Level(string id, int startA, int startB, int startC, int scoreA, int scoreB, int scoreC, int startAnger, int angerLimit, int angerReduction, int deckSize, string[] moodChanges){
 			this.id = id;
 			this.startA = startA;
 			this.startB = startB;
@@ -422,17 +422,25 @@ namespace DataTypes{
 			this.scoreA = scoreA;
 			this.scoreB = scoreB;
 			this.scoreC = scoreC;
+			this.startAnger = startAnger;
+			this.angerLimit = angerLimit;
+			this.angerReduction = angerReduction;
 			this.deckSize = deckSize;
 			this.moodChanges = moodChanges;
 		}
 	}
 	public class SheetLevel: IEnumerable{
-		public System.DateTime updated = new System.DateTime(2018,12,16,5,21,37);
-		public readonly string[] labels = new string[]{"id","int startA","int startB","int startC","int scoreA","int scoreB","int scoreC","int deckSize","string[] moodChanges"};
-		private Level[] _rows = new Level[1];
+		public System.DateTime updated = new System.DateTime(2018,12,18,5,21,10);
+		public readonly string[] labels = new string[]{"id","int startA","int startB","int startC","int scoreA","int scoreB","int scoreC","int startAnger","int angerLimit","int angerReduction","int deckSize","string[] moodChanges"};
+		private Level[] _rows = new Level[6];
 		public void Init() {
 			_rows = new Level[]{
-					new Level("test_level",20,10,60,70,60,50,30,new string[]{"0;1;1;0","0;1;1;0","0;2;1;0","0;1;3;0","0;2;2;0","0;1;1;0","0;1;0;0","0;1;0;0","0;1;0;0","0;0;1;0","0;0;2;0","0;0;3;0","0;0;1;0","0;1;1;0","0;3;3;0","0;1;1;0","0;2;1;0","0;0;1;0","0;1;0;0","0;2;2;0","0;1;0;0","0;0;2;0","0;0;1;0","0;3;3;0"})
+					new Level("test_level",20,10,60,70,60,50,0,50,10,30,new string[]{"0;1;1;0","0;1;1;0","0;2;1;0","0;1;3;0","0;2;2;0","0;1;1;0","0;1;0;0","0;1;0;0","0;1;0;0","0;0;1;0","0;0;2;0","0;0;3;0","0;0;1;0","0;1;1;0","0;3;3;0","0;1;1;0","0;2;1;0","0;0;1;0","0;1;0;0","0;2;2;0","0;1;0;0","0;0;2;0","0;0;1;0","0;3;3;0"}),
+					new Level("Level 1",10,0,0,25,0,0,0,40,10,30,new string[]{"0;1;0;0","0;1;0;0","0;2;0;0","0;3;0;0","0;2;0;0","0;1;0;0","0;2;0;0","0;1;0;0","0;3;0;0","0;1;0;0","0;2;0;0","0;1;0;0","0;1;0;0","0;1;0;0","0;3;0;0","0;1;0;0","0;2;0;0","0;1;0;0","0;1;0;0","0;2;0;0","0;1;0;0","0;1;0;0","0;0;1;0","0;2;0;0"}),
+					new Level("Level 2",10,10,10,20,20,0,0,30,10,30,new string[]{"0;1;0;0","0;0;1;0","0;1;1;0","0;0;1;0","0;1;0;0","0;1;1;0","0;1;0;0","0;1;0;0","0;1;0;0","0;0;1;0","0;0;2;0","0;1;0;0","0;0;1;0","0;1;1;0","0;1;2;0","0;1;1;0","0;0;1;0","0;0;1;0","0;1;0;0","0;1;1;0","0;1;0;0","0;3;0;0","0;0;1;0","0;0;3;0"}),
+					new Level("Level 3",15,15,15,30,30,25,0,25,10,30,new string[]{"0;1;1;0","0;0;2;2","0;1;2;1","0;1;2;1","0;1;1;3","0;1;2;1","0;1;1;0","0;0;0;1","0;1;0;1","0;2;1;0","0;0;2;1","0;1;0;2","0;2;0;1","0;1;1;1","0;1;2;3","0;2;2;0","0;1;0;1","0;1;1;0","0;1;0;0","0;2;2;0","0;1;1;0","0;2;1;1","0;0;1;0","0;2;2;3"}),
+					new Level("Level 4",15,15,15,30,40,30,0,20,10,30,new string[]{"0;0;1;0","0;0;2;0","0;2;2;0","0;2;0;0","0;1;2;0","0;1;3;0","0;0;0;1","0;0;1;2","0;1;1;3","0;2;1;0","0;2;3;0","0;1;2;0","0;0;2;0","0;1;1;1","0;1;2;2","0;1;2;3","0;0;3;0","0;1;2;2","0;1;1;0","0;0;2;0","0;2;1;0","0;0;1;0","0;0;2;0","0;0;3;0"}),
+					new Level("Level 5",20,10,60,40,25,40,0,15,10,30,new string[]{"0;1;0;1","0;1;1;0","0;2;1;3","0;1;3;1","0;2;2;3","0;1;1;2","0;2;1;2","0;1;0;2","0;1;1;1","0;1;0;1","0;0;2;0","0;0;3;0","0;3;0;3","0;2;1;2","0;3;3;0","0;1;1;2","0;2;1;3","0;3;1;3","0;1;0;0","0;2;2;0","0;1;0;0","0;0;2;0","0;0;1;0","0;3;3;0"})
 				};
 		}
 			
@@ -511,6 +519,11 @@ namespace DataTypes{
 		//Specific Items
 
 		public Level test_level{	get{ return _rows[0]; } }
+		public Level level1{	get{ return _rows[1]; } }
+		public Level level2{	get{ return _rows[2]; } }
+		public Level level3{	get{ return _rows[3]; } }
+		public Level level4{	get{ return _rows[4]; } }
+		public Level level5{	get{ return _rows[5]; } }
 
 	}
 }
@@ -527,12 +540,17 @@ namespace DataTypes{
 		}
 	}
 	public class SheetTimings: IEnumerable{
-		public System.DateTime updated = new System.DateTime(2018,12,16,5,21,37);
+		public System.DateTime updated = new System.DateTime(2018,12,18,5,21,10);
 		public readonly string[] labels = new string[]{"id","string[] moodChanges"};
-		private Timings[] _rows = new Timings[1];
+		private Timings[] _rows = new Timings[6];
 		public void Init() {
 			_rows = new Timings[]{
-					new Timings("test_level",new string[]{"5","3","2","2","3","2_COMBO","2","2","4","2","3","2","2","2","1.5","1.5","2","2","3","1.5","1.5","1.5","2","1.5"})
+					new Timings("test_level",new string[]{"5","3","2","2","3","2_COMBO","1.5","2","4","2","3","2","2","2","1.5","1.5","2","2","3","1.5","1.5","1.5","2","1.5"}),
+					new Timings("Level 1",new string[]{"5","3","2","2","3","2_COMBO","1.5","2","4","2","3","2","2","2","1.5","1.5","2","2","3","1.5","1.5","1.5","2","1.5"}),
+					new Timings("Level 2",new string[]{"5","3","2","2","3","2_COMBO","1.5","2","4","2","3","2","2","2","1.5","1.5","2","2","3","1.5","1.5","1.5","2","1.5"}),
+					new Timings("Level 3",new string[]{"5","3","2","2","3","2_COMBO","1.5","2","4","2","3","2","2","2","1.5","1.5","2","2","3","1.5","1.5","1.5","2","1.5"}),
+					new Timings("Level 4",new string[]{"5","3","2","2","3","2_COMBO","1.5","2","4","2","3","2","2","2","1.5","1.5","2","2","3","1.5","1.5","1.5","2","1.5"}),
+					new Timings("Level 5",new string[]{"5","3","2","2","3","2_COMBO","1.5","3","4","2","3","2","2","3","2","4","2","3","3","1.5","1.5","1.5","2","1.5"})
 				};
 		}
 			
@@ -611,6 +629,11 @@ namespace DataTypes{
 		//Specific Items
 
 		public Timings test_level{	get{ return _rows[0]; } }
+		public Timings level1{	get{ return _rows[1]; } }
+		public Timings level2{	get{ return _rows[2]; } }
+		public Timings level3{	get{ return _rows[3]; } }
+		public Timings level4{	get{ return _rows[4]; } }
+		public Timings level5{	get{ return _rows[5]; } }
 
 	}
 }

@@ -55,7 +55,7 @@ public class UITapPoint : MonoBehaviour
 
             rect.anchoredPosition = new Vector2(secondsFromNow * DISTANCE_PER_SECOND, rect.anchoredPosition.y);
 
-            if (currentTime > myNote.time + GameController.TAP_NODE_TIME_WINDOW)
+            if (currentTime > myNote.time + GameController.TAP_NODE_TIME_WINDOW * 1.15f)
             {
                 Hide();
                 return true;
