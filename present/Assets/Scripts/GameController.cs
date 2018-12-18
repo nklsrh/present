@@ -170,9 +170,9 @@ public class GameController : MonoBehaviour
             if (note != null)
             {
                 ScoreMood(note, c);
+                DrawCards(1);
             }
             BreakCombo();
-            DrawCards(1);
         }
 
         if (card is ComboCard)
@@ -190,8 +190,8 @@ public class GameController : MonoBehaviour
                         PlayCombo(note, c);
                     }
                 }
+                DrawCards(1);
             }
-            DrawCards(1);
         }
 
         if (card is DrawCard)
@@ -202,13 +202,13 @@ public class GameController : MonoBehaviour
             {
                 DrawCards(c.cardsToDraw);
             }
-            else
-            {
-                DrawCards(1);
-            }
             BreakCombo();
         }
 
+        if (hand.Count == 0)
+        {
+            DrawCards(1);
+        }
         uiHand.Setup(hand);
     }
 
