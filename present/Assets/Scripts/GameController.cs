@@ -286,7 +286,7 @@ public class GameController : MonoBehaviour
                         {
                             actualChange = note.moodScores[cardSlot.mood];
                         }
-                        else if (delta == 0) // otherwise take the value from the card only
+                        else // otherwise take the value from the card only
                         {
                             actualChange = cardSlot.value;
                         }
